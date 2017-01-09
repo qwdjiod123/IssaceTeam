@@ -1,0 +1,7 @@
+﻿  cItemManager.cpp
+c:\users\sga\desktop\새 폴더 (2)\아이작포토폴리오2\citemmanager.cpp(48): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\sga\desktop\새 폴더 (2)\아이작포토폴리오2\citemmanager.cpp(86): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\sga\desktop\새 폴더 (2)\아이작포토폴리오2\citemmanager.cpp(166): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\sga\desktop\새 폴더 (2)\아이작포토폴리오2\citemmanager.cpp(213): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\sga\desktop\새 폴더 (2)\아이작포토폴리오2\citemmanager.cpp(217): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  WindowAPI.vcxproj -> C:\Users\SGA\Desktop\새 폴더 (2)\아이작포토폴리오2\x64\Debug\WindowAPI.exe
