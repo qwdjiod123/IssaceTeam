@@ -60,6 +60,9 @@
     <Filter Include="MainGame\아이작">
       <UniqueIdentifier>{feb1d96d-878c-4deb-8b9c-9fb4b9461d07}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MainGame\아이작\enemy">
+      <UniqueIdentifier>{a3a9dcb0-e7f8-4285-a156-1cd5f4562ed5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainGame.h">
@@ -137,6 +140,15 @@
     <ClInclude Include="cSceneManager.h">
       <Filter>MainGame\아이작</Filter>
     </ClInclude>
+    <ClInclude Include="enemy.h">
+      <Filter>MainGame\아이작\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="enemyManager.h">
+      <Filter>MainGame\아이작\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="groundEnemy.h">
+      <Filter>MainGame\아이작\enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mainGame.cpp">
@@ -207,6 +219,15 @@
     </ClCompile>
     <ClCompile Include="cSceneManager.cpp">
       <Filter>MainGame\아이작</Filter>
+    </ClCompile>
+    <ClCompile Include="enemy.cpp">
+      <Filter>MainGame\아이작\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="enemyManager.cpp">
+      <Filter>MainGame\아이작\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="groundEnemy.cpp">
+      <Filter>MainGame\아이작\enemy</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
