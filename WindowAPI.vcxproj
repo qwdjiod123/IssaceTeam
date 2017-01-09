@@ -148,7 +148,10 @@
     <ClInclude Include="cPlayer.h" />
     <ClInclude Include="cSceneGame.h" />
     <ClInclude Include="cSceneManager.h" />
+    <ClInclude Include="enemy.h" />
+    <ClInclude Include="enemyManager.h" />
     <ClInclude Include="gameNode.h" />
+    <ClInclude Include="groundEnemy.h" />
     <ClInclude Include="image.h" />
     <ClInclude Include="imageManager.h" />
     <ClInclude Include="iniData.h" />
@@ -174,7 +177,10 @@
     <ClCompile Include="cPlayer.cpp" />
     <ClCompile Include="cSceneGame.cpp" />
     <ClCompile Include="cSceneManager.cpp" />
+    <ClCompile Include="enemy.cpp" />
+    <ClCompile Include="enemyManager.cpp" />
     <ClCompile Include="gameNode.cpp" />
+    <ClCompile Include="groundEnemy.cpp" />
     <ClCompile Include="image.cpp" />
     <ClCompile Include="imageManager.cpp" />
     <ClCompile Include="iniData.cpp" />

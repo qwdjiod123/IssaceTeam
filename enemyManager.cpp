@@ -1,13 +1,11 @@
 #include "stdafx.h"
 #include "enemyManager.h"
-#include "player.h"
 
 
 HRESULT enemyManager::init(void)
 {
 	//미니언 생성
-	this->setMinion();
-
+	
 	_count = 0;
 
 	//총알클래스 생성 및 초기화
@@ -58,16 +56,7 @@ void enemyManager::render(void)
 
 void enemyManager::setMinion(void)
 {
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < 6; j++)
-		{
-			enemy* ufo = new minion;
-			ufo->init("ufo", PointMake(50 + j * 100, 100 + i * 100));
-
-			_vMinion.push_back(ufo);
-		}
-	}
+	
 }
 
 void enemyManager::minionBulletFire(void)
@@ -91,16 +80,5 @@ void enemyManager::removeMinion(int index)
 //적총알과 플레이어
 void enemyManager::collision()
 {
-	for (int i = 0; i < _bullet->getVBullet().size(); i++)
-	{
-		RECT rc;
-		if (IntersectRect(&rc, &_bullet->getVBullet()[i].rc,
-			&_player->getPlayerImage()->boundingBox()))
-		{
-			_bullet->removeBullet(i);
-			_player->hitDamage(10);
-			break;
-		}
-
-	}
+	
 }

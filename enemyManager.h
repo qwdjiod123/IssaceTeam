@@ -4,7 +4,7 @@
 #include "bullet.h"
 
 //상호참조용 플레이어 클래스 전방선언
-class player;
+
 
 class enemyManager : public gameNode
 {
@@ -15,7 +15,7 @@ private:
 	bullet* _bullet;
 	int _count;
 
-	player* _player;	//동적할당 하면 안된다!!!
+		//동적할당 하면 안된다!!!
 
 public:
 	HRESULT init(void);
@@ -39,7 +39,7 @@ public:
 	vector<enemy*> getVMinion() { return _vMinion; }
 
 	//상호참조시 플레이어포인터를 넘길 셋터함수
-	void setPlayerLink(player* player) { _player = player; }
+	
 
 	enemyManager() {}
 	~enemyManager() {}

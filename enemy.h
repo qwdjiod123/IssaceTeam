@@ -6,7 +6,7 @@ class enemy : public gameNode
 {
 private:
 	RECT _rc;			//충돌용 렉트
-	image* _image;		//에너미 이미지
+	image* _image;		//에너미 이미지 
 
 	//프레임 이미지를 돌리기 위한 변수들
 	int _count;
