@@ -5,6 +5,16 @@
 
 class cItemManager;
 
+enum ESTATE
+{
+	IDLE,
+	DAMAGED,
+	// 카드애니매이션일떄 카드먹을때 아이템쪽에서 능력치올려주고 플레이어상태를 얘로바꿈 
+	// 플레이어쪽에서는 얘상태일때 약드는애니매이션? 출력하고 프레임이 최대로 가면 IDLE로 바꾸는로직짜면될듯
+	CARDANIM, 
+};
+
+
 class cPlayer : public gameNode
 {
 private:
@@ -15,8 +25,13 @@ private:
 	RECT rc;
 	float x;
 	float y;	
+	int state = IDLE;
 
-	int currentmap;
+	// 만약에 날개아이템(구렁텅잉의군주?)을 먹으면 아이템 매니져쪽에서 얘를 true로 바꿀거임.
+	// 맵매니져쪽에서 픽셀충돌을 IsFly==false일때만 검사하고 true가되면 픽셀충돌 하지않게 짜면될듯?
+	bool IsFly = false; 
+
+	vector<int> vInventory;
 
 //==================================================================
 //		## 스탯 ## 추가로들어갈거 수정필수!
@@ -36,22 +51,28 @@ private:
 	int bomb;   //폭탄
 	int arrow;  //현재총알종류
 	int space;  //아이템
-
+	int card; //능력치올려주는카드
 
 public:
 	void SetIM(cItemManager* iim) { _im = iim; }
-
-	void SetCurrentMap(int _currentmap) { currentmap = _currentmap; }
-	int GetCurrentMap() { return currentmap; }
-
-	int GetKey() { return key; }
-	void SetKey(int _key) { key = _key; }
+	
+	bool GetIsFly() { return IsFly; }
+	void SetIsFly(bool _IsFly) { IsFly = _IsFly; }
 
 	int GetMoney() { return money; }
 	void SetMoney(int _money) { money = _money; }
 
+	int GetKey() { return key; }
+	void SetKey(int _key) { key = _key; }	
+
 	int GetBomb() { return bomb; }
 	void SetBomb(int _bomb) { bomb = _bomb; }
+
+	int GetArrow() { return arrow; }
+	void SetArrow(int _arrow) { arrow = _arrow; }
+
+	int GetSpace() { return space; }
+	void SetSpace(int _space) { space = _space; }
 
 	void SetX(float _x) { x = _x; }
 	float GetX() { return x; }
