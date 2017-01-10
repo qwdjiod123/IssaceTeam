@@ -1,8 +1,17 @@
 #pragma once
 #include "gameNode.h"
 #include "bullet.h"
-#define PLAYERSIZE 50 // 플레이어렉트사이즈
-
+#define PLAYERSIZEX 18*3 // 플레이어렉트사이즈
+#define PLAYERSIZEY 15*3
+#define PLAYERHEADSIZEX 28*3
+#define PLAYERHEADSIZEY 25*3
+enum PlayerFaceState
+{
+	pLEFT,
+	pRIGHT,
+	pIDLE,
+    pUP,
+};
 class cItemManager;
 
 class cPlayer : public gameNode
@@ -11,12 +20,20 @@ private:
 
 	cItemManager* _im;
 	bullet* _bullet;
-
+	PlayerFaceState faceState; 
+	PlayerFaceState keyState;
 	RECT rc;
+	RECT rcHead;
 	float x;
 	float y;	
-
 	int currentmap;
+	//애니메이션 
+	int frameCount;
+	int returnCount;
+	bool fire;
+	int leftFrame;
+	int rightFrame;
+	int upDownFrame;
 
 //==================================================================
 //		## 스탯 ## 추가로들어갈거 수정필수!
@@ -65,7 +82,7 @@ public:
 	void release(void);
 	void update(void);
 	void render(void);
-
+	void animation(void);
 	cPlayer() {}
 	~cPlayer(){}
 };

@@ -48,7 +48,7 @@ void loadingScene::loadingImage(void)
 	//_loading->loadFrameImage();
 
 	//로딩이 너무 빠르게 진행되서 천천히 돌아가도록 테스트용으로 만들어 놓자
-	for (int i = 0; i < 500; i++)
+	for (int i = 0; i < 100; i++)
 	{
 		_loading->loadImage("테스트", WINSIZEX, WINSIZEY);
 	}
@@ -61,7 +61,14 @@ void loadingScene::loadingImage(void)
 	_loading->loadImage("map3", "map3.bmp", WINSIZEX, WINSIZEY);
 	_loading->loadImage("폭탄", "bomb.bmp", 50, 50);
 	_loading->loadImage("열쇠", "key.bmp", 50, 50);
-
+	_loading->loadImage("아이작왼쪽얼굴", "아이작LEFT.bmp", 28*3, 25*3, true, RGB(255, 0, 255));
+	_loading->loadImage("아이작오른쪽얼굴", "아이작옆.bmp", 28*3, 25 * 3, true, RGB(255, 0, 255));
+	_loading->loadImage("아이작IDLE", "아이작IDLE.bmp", 28 * 3, 25 * 3, true, RGB(255, 0, 255));
+	_loading->loadImage("아이작뒷통수", "아이작뒷통수.bmp", 28 * 3, 25 * 3, true, RGB(255, 0, 255));
+	_loading->loadImage("아이작몸통", "몸통.bmp", 18 * 3, 15 * 3, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("아이작왼쪽몸통", "WALKLEFT.bmp", 180 * 3, 15 * 3, 10, 1, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("아이작오른쪽몸통", "아이작RIGHT.bmp", 180 * 3, 15 * 3, 10,1,true, RGB(255, 0, 255));
+	_loading->loadFrameImage("아이작UPDOWN", "아이작UPDOWN.bmp", 180 * 3, 15 * 3, 10, 1, true, RGB(255, 0, 255));
 }
 //로딩사운드 함수(이곳에 사운드를 전부 넣어라)
 void loadingScene::loadingSound(void)
