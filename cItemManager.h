@@ -33,7 +33,7 @@ struct tag_Item
 	int state; // 이아이템이 무엇인지 
 	int currentmap; // 현재 무슨맵에 생성되어있는 아이템인지
 	
-	bool IsBomb;  // 폭탄사용하는거떄문에 따로만든 변수 
+	bool IsBomb=false;  // 폭탄사용하는거떄문에 따로만든 변수 
 	int contdown=0; // 폭탄사용하는거떄문에 따로만든 변수 
 };
 
@@ -41,8 +41,7 @@ class cItemManager : public gameNode
 {
 private:
 
-	RECT temp;
-
+	RECT temp; 
 //==================================================================
 //		## 아이템관리 백터 ##
 //==================================================================
@@ -51,8 +50,7 @@ private:
 
 	cSceneManager* _sm;
 	cPlayer* _player;
-	
-	RECT test;
+		
 
 public:
 
@@ -61,7 +59,7 @@ public:
 
 	void ItemMapSet(float _x, float _y, int _state, int _currentmap); // 맵만드는사람이씁니다.
 		
-	void ItemUse(int itemNumber,int money=0); // 플레이어에서씁니다. 맵만드는사람이 쓸수도있슴.
+	void ItemUse(int _item,int _money=0); // 플레이어에서씁니다. 맵만드는사람이 쓸수도있슴.
 	void ItemMake(float _x, float _y, int _state, int _currentmap);
 
 	void DeleteItem(int index); // 아이템매니져에서만 씁니다.

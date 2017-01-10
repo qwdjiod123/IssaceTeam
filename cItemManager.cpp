@@ -29,10 +29,8 @@ void cItemManager::render(void)
 	ItemRender(¸Ê12);
 
 	NewItemRender(¸Ê11);
-	NewItemRender(¸Ê12);		
+	NewItemRender(¸Ê12);
 
-
-	RectangleMake(getMemDC(), test);
 }
 
 
@@ -49,10 +47,10 @@ void cItemManager::ItemMapSet(float _x, float _y, int _state, int _currentmap)
 	vItem.push_back(item);
 }
 
-void cItemManager::ItemUse(int itemNumber, int money)
+void cItemManager::ItemUse(int _item, int money)
 {
 	
-	if (itemNumber==ÆøÅº)
+	if (_item ==ÆøÅº)
 	{
 		_player->SetBomb(_player->GetBomb() - 1);
 		tag_Item item;
@@ -61,14 +59,14 @@ void cItemManager::ItemUse(int itemNumber, int money)
 		item.IsBomb = true;		
 		item.state = ÆøÅº;
 		item.currentmap = _sm->GetCurrentMap();
-		item.rc = RectMakeCenter(10, 10, 100, 100); // ÆøÅºÀÌ ÅÍÁú¶§ ·¢Æ®»ı¼ºÇÔ update()¿¡¼­Ã³¸®ÇÔ
+		//item.rc = RectMakeCenter(10, 10, 100, 100); // ÆøÅºÀÌ ÅÍÁú¶§ ·¢Æ®»ı¼ºÇÔ update()¿¡¼­Ã³¸®ÇÔ
 		vNewItem.push_back(item);
 	}
-	if (itemNumber==¿­¼è)
+	if (_item ==¿­¼è)
 	{
 		_player->SetKey(_player->GetKey() - 1);
 	}
-	if (itemNumber==µ¿Àü)
+	if (_item ==µ¿Àü)
 	{
 		_player->SetMoney(_player->GetMoney() - money);
 	}
@@ -157,20 +155,18 @@ void cItemManager::NewItemUpdate(int _currentmap)
 					}
 					
 					if (vNewItem[i].state == ÆøÅº&&vNewItem[i].IsBomb == true)
-					{
-						//cout << vNewItem[i].contdown << endl;
-						vNewItem[i].contdown++;
-						if (vNewItem[i].contdown>100)
+					{						
+						vNewItem[i].contdown++;  // Æø¹ßÇÏ±â 100ÃÊÀü						
+						if (100<vNewItem[i].contdown&& vNewItem[i].contdown<120) // Æø¹ß 20ÃÊµ¿¾È
 						{
-							//test = RectMakeCenter(vNewItem[i].x, vNewItem[i].y, BOMBSIZE, BOMBSIZE);
-							vNewItem[i].rc = RectMakeCenter(vNewItem[i].x, vNewItem[i].y, BOMBSIZE, BOMBSIZE);	
-							//cout << vNewItem[i].x << endl;
-							
-							vNewItem[i].contdown = 0;
-							//DeleteNewItem(i);
+							vNewItem[i].rc = RectMakeCenter(vNewItem[i].x, vNewItem[i].y, BOMBSIZE, BOMBSIZE);
+						}
+						if (vNewItem[i].contdown>120)
+						{
+							vNewItem[i].contdown = 0; // ¾ê´Â ¾ÈÇØÁàµµµÇ´Âµ¥ ÂòÂòÇØ¼­ ±×³ÉÇÔ
+							DeleteNewItem(i);   // Æø¹ßÈÄ »èÁ¦
 							break;
 						}
-						//cout << nCount << endl;
 					}
 				}
 			}			
@@ -215,9 +211,7 @@ void cItemManager::NewItemRender(int _currentmap)
 				if (vNewItem[i].state == ÆøÅº)
 				{
 					IMAGEMANAGER->render("ÆøÅº", getMemDC(), vNewItem[i].x, vNewItem[i].y, 0, 0, 50, 50);
-				}
-				
-							
+				}											
 			}
 			RectangleMake(getMemDC(), vNewItem[i].rc);			
 		}		
