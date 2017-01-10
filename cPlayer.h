@@ -105,6 +105,8 @@ public:
 
 	RECT GetRC() { return rc; }
 	
+	bullet* getBullet() { return _bullet; }
+
 	HRESULT init(void);
 	void release(void);
 	void update(void);

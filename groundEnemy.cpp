@@ -65,6 +65,18 @@ void groundEnemy::move()
 		break;
 	}
 
+	if (_knockBackCount > 0)
+	{
+		_knockBackCount--;
+		_x += cosf(_knockBackAngle)*KONCKBACKPOWER;
+		_y += -sinf(_knockBackAngle)*KONCKBACKPOWER;
+	}
+	else
+	{
+		_knockBackCount = 0;
+		_knockBackAngle = 0;
+	}
+
 	if (_move == UP || _move == DOWN)
 	{
 		_rc = RectMakeCenter(_x, _y, _v_img->getWidth(), _v_img->getHeight());
@@ -130,6 +142,8 @@ void groundEnemy::move()
 		}
 	}
 
+
+	//케릭터 몸이랑 몬스터 몸의 충돌
 	RECT temp;
 	if (IntersectRect(&temp, &_player->GetRC(), &_rc))
 	{
@@ -137,6 +151,19 @@ void groundEnemy::move()
 	}
 
 
+
+	//캐릭터 총알이랑 몬스터 몸체의 충돌
+	RECT colTemp;
+	for (int i = 0; i < _player->getBullet()->getVBullet().size(); i++)
+	{
+		if (IntersectRect(&colTemp, &_rc, &_player->getBullet()->getVBullet()[i].rc))
+		{
+			_knockBackCount = 5;
+			_knockBackAngle = getAngle(_player->getBullet()->getVBullet()[i].x, _player->getBullet()->getVBullet()[i].y, _x, _y);
+			_player->getBullet()->getVBullet().erase(_player->getBullet()->getVBullet().begin() + i);
+			break;
+		}
+	}
 
 }
 

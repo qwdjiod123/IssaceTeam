@@ -1,6 +1,6 @@
 #pragma once
 #include "enemy.h"
-
+#define KONCKBACKPOWER 1.0f
 enum MOVESTATE
 {
 	UP,
