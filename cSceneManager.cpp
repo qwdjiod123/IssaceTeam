@@ -41,7 +41,7 @@ void cSceneManager::update(void)
 		{
 			if (IntersectRect(&temp, &_player->GetRC(), &store))
 			{
-				_im->ItemMake(_player->GetX(), _player->GetY(), ÆøÅº, ¸Ê11);
+				_im->ItemMake(WINSIZEX/2, WINSIZEY/2, ÆøÅº, ¸Ê11);
 			}
 		}
 		

@@ -76,7 +76,10 @@ void cItemManager::ItemUse(int _item, int money)
 void cItemManager::ItemMake(float _x, float _y, int _state, int _currentmap)
 {
 	tag_Item item;
-	item.IsBomb = false;	
+	item.IsBomb = false;
+	
+	item.moveSpeed = 5.0f;
+	item.angle = RND->getFromFloatTo(0, 2 * PI);
 	item.x = _x;
 	item.y = _y;
 	item.state = _state;
@@ -139,6 +142,18 @@ void cItemManager::NewItemUpdate(int _currentmap)
 			{
 				if (vNewItem[i].currentmap == _currentmap)
 				{
+						
+					if (vNewItem[i].IsBomb==false)
+					{
+						if (vNewItem[i].moveSpeed>0.0f)
+						{
+							vNewItem[i].moveSpeed -= 0.1f;
+							vNewItem[i].x += cosf(vNewItem[i].angle)*vNewItem[i].moveSpeed;
+							vNewItem[i].y += -sinf(vNewItem[i].angle)*vNewItem[i].moveSpeed;
+							vNewItem[i].rc = RectMakeCenter(vNewItem[i].x, vNewItem[i].y, ITEMSIZE, ITEMSIZE);
+						}
+					}
+
 					if (IntersectRect(&temp,&_player->GetRC(),&vNewItem[i].rc))
 					{
 						if (vNewItem[i].state == ¿­¼è)
@@ -206,14 +221,21 @@ void cItemManager::NewItemRender(int _currentmap)
 			{
 				if (vNewItem[i].state == ¿­¼è)
 				{
-					IMAGEMANAGER->render("¿­¼è", getMemDC(), _player->GetX(), _player->GetY(), 0, 0, 50, 50);
+					RectangleMake(getMemDC(), vNewItem[i].rc);
+					IMAGEMANAGER->render("¿­¼è", getMemDC(), vNewItem[i].rc.left, vNewItem[i].rc.top, 0, 0, 50, 50);
 				}
-				if (vNewItem[i].state == ÆøÅº)
+				if (vNewItem[i].state == ÆøÅº&&vNewItem[i].IsBomb==false)
 				{
+					RectangleMake(getMemDC(), vNewItem[i].rc);
+					IMAGEMANAGER->render("ÆøÅº", getMemDC(), vNewItem[i].rc.left, vNewItem[i].rc.top, 0, 0, 50, 50);
+				}
+				if (vNewItem[i].state == ÆøÅº&&vNewItem[i].IsBomb == true)
+				{					
 					IMAGEMANAGER->render("ÆøÅº", getMemDC(), vNewItem[i].x, vNewItem[i].y, 0, 0, 50, 50);
-				}											
+					RectangleMake(getMemDC(), vNewItem[i].rc);
+				}
 			}
-			RectangleMake(getMemDC(), vNewItem[i].rc);			
+			
 		}		
 	}	
 }

@@ -1,6 +1,8 @@
-﻿  cSceneGame.cpp
-  코드를 생성하고 있습니다...
-  건너뛰고 있습니다... (관련된 변경 내용 없음)
-  winMain.cpp
-  mainGame.cpp
+﻿cl : 명령줄 warning D9028: 최소 다시 빌드에 실패했습니다. 정상 빌드로 되돌립니다.
+  cItemManager.cpp
+c:\users\sga\desktop\새 폴더 (2)\issaceteam\citemmanager.cpp(46): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\sga\desktop\새 폴더 (2)\issaceteam\citemmanager.cpp(87): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\sga\desktop\새 폴더 (2)\issaceteam\citemmanager.cpp(153): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\sga\desktop\새 폴더 (2)\issaceteam\citemmanager.cpp(177): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\sga\desktop\새 폴더 (2)\issaceteam\citemmanager.cpp(234): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   WindowAPI.vcxproj -> C:\Users\SGA\Desktop\새 폴더 (2)\IssaceTeam\x64\Debug\WindowAPI.exe

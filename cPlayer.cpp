@@ -10,7 +10,7 @@ HRESULT cPlayer::init(void)
 	money = 0;
 	bomb = 0;
 	arrow = ±âº»ÃÑ¾Ë;
-	space = Ç÷»ç;
+	space = ¸ð·¡½Ã°è;
 
 	x = WINSIZEX / 2;
 	y = WINSIZEY / 2;
