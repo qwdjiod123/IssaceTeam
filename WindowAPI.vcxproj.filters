@@ -63,6 +63,15 @@
     <Filter Include="MainGame\아이작\enemy">
       <UniqueIdentifier>{a3a9dcb0-e7f8-4285-a156-1cd5f4562ed5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MainGame\아이작\아이템매니져">
+      <UniqueIdentifier>{afeb10dd-e311-43dd-9a62-a26abb648b43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainGame\아이작\플레이어">
+      <UniqueIdentifier>{071a6024-29e2-4dec-b18e-285d05bfca09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainGame\아이작\맵매니져">
+      <UniqueIdentifier>{c4a95d8e-294b-49c5-b52a-2fe7e33a67d6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainGame.h">
@@ -128,16 +137,7 @@
     <ClInclude Include="loadingScene.h">
       <Filter>MainGame\로딩화면</Filter>
     </ClInclude>
-    <ClInclude Include="cPlayer.h">
-      <Filter>MainGame\아이작</Filter>
-    </ClInclude>
-    <ClInclude Include="cItemManager.h">
-      <Filter>MainGame\아이작</Filter>
-    </ClInclude>
     <ClInclude Include="cSceneGame.h">
-      <Filter>MainGame\아이작</Filter>
-    </ClInclude>
-    <ClInclude Include="cSceneManager.h">
       <Filter>MainGame\아이작</Filter>
     </ClInclude>
     <ClInclude Include="enemy.h">
@@ -148,6 +148,15 @@
     </ClInclude>
     <ClInclude Include="groundEnemy.h">
       <Filter>MainGame\아이작\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="cItemManager.h">
+      <Filter>MainGame\아이작\아이템매니져</Filter>
+    </ClInclude>
+    <ClInclude Include="cPlayer.h">
+      <Filter>MainGame\아이작\플레이어</Filter>
+    </ClInclude>
+    <ClInclude Include="cSceneManager.h">
+      <Filter>MainGame\아이작\맵매니져</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -208,16 +217,7 @@
     <ClCompile Include="loadingScene.cpp">
       <Filter>MainGame\로딩화면</Filter>
     </ClCompile>
-    <ClCompile Include="cPlayer.cpp">
-      <Filter>MainGame\아이작</Filter>
-    </ClCompile>
-    <ClCompile Include="cItemManager.cpp">
-      <Filter>MainGame\아이작</Filter>
-    </ClCompile>
     <ClCompile Include="cSceneGame.cpp">
-      <Filter>MainGame\아이작</Filter>
-    </ClCompile>
-    <ClCompile Include="cSceneManager.cpp">
       <Filter>MainGame\아이작</Filter>
     </ClCompile>
     <ClCompile Include="enemy.cpp">
@@ -228,6 +228,15 @@
     </ClCompile>
     <ClCompile Include="groundEnemy.cpp">
       <Filter>MainGame\아이작\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="cItemManager.cpp">
+      <Filter>MainGame\아이작\아이템매니져</Filter>
+    </ClCompile>
+    <ClCompile Include="cPlayer.cpp">
+      <Filter>MainGame\아이작\플레이어</Filter>
+    </ClCompile>
+    <ClCompile Include="cSceneManager.cpp">
+      <Filter>MainGame\아이작\맵매니져</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
