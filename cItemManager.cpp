@@ -39,6 +39,7 @@ void cItemManager::ItemMapSet(float _x, float _y, int _state, int _currentmap)
 {
 	tag_Item item;
 	item.IsBomb = false;	
+	item.moveSpeed = 0.0f;
 	item.x = _x;
 	item.y = _y;
 	item.state = _state;
@@ -47,9 +48,8 @@ void cItemManager::ItemMapSet(float _x, float _y, int _state, int _currentmap)
 	vItem.push_back(item);
 }
 
-void cItemManager::ItemUse(int _item, int money)
-{
-	
+void cItemManager::ItemUse(int _item)
+{	
 	if (_item ==폭탄)
 	{
 		_player->SetBomb(_player->GetBomb() - 1);
@@ -61,15 +61,20 @@ void cItemManager::ItemUse(int _item, int money)
 		item.currentmap = _sm->GetCurrentMap();
 		//item.rc = RectMakeCenter(10, 10, 100, 100); // 폭탄이 터질때 랙트생성함 update()에서처리함
 		vNewItem.push_back(item);
-	}
-	if (_item ==열쇠)
+	}	
+	if (_item==박사의조정기)
 	{
-		_player->SetKey(_player->GetKey() - 1);
+
 	}
-	if (_item ==동전)
+	if (_item==모래시계)
 	{
-		_player->SetMoney(_player->GetMoney() - money);
+
 	}
+	if (_item==카드)
+	{
+
+	}
+
 
 }
 
@@ -115,18 +120,68 @@ void cItemManager::ItemUpdate(int _currentmap)
 			{
 				if (vItem[i].currentmap == _currentmap)
 				{
+
+
+					//==================================================================
+					//		## 아이템움직이는로직 ##
+					//==================================================================	
+					if (vItem[i].IsBomb == false)
+					{
+						if (vItem[i].moveSpeed>0.0f)
+						{
+							vItem[i].moveSpeed -= 0.1f;
+							vItem[i].x += cosf(vItem[i].angle)*vItem[i].moveSpeed;
+							vItem[i].y += -sinf(vItem[i].angle)*vItem[i].moveSpeed;
+							vItem[i].rc = RectMakeCenter(vItem[i].x, vItem[i].y, ITEMSIZE, ITEMSIZE);
+						}
+					}
+
+
+
 					if (IntersectRect(&temp, &_player->GetRC(), &vItem[i].rc))
 					{
 						if (vItem[i].state == 열쇠)
 						{
 							_player->SetKey(_player->GetKey() + 1);
+							DeleteItem(i);
+							break;
 						}
 						if (vItem[i].state == 폭탄)
 						{
 							_player->SetBomb(_player->GetBomb() + 1);
+							DeleteItem(i);
+							break;
 						}
-						DeleteItem(i);
-						break;
+						if (vItem[i].state==동전1)
+						{
+							if (_player->GetMoney()==99)
+							{
+								float distance = getDistance(vItem[i].x, vItem[i].y, _player->GetX(), _player->GetY());
+								if (distance<75)
+								{
+									vItem[i].angle = getAngle(_player->GetX(), _player->GetY(), vItem[i].x, vItem[i].y);
+									vItem[i].moveSpeed = 5.0f;
+								}								
+							}
+							if (_player->GetMoney()<99)
+							{
+								_player->SetMoney(_player->GetMoney() + 1);
+								DeleteItem(i);
+								break;
+							}							
+						}
+						if (vItem[i].state==동전99)
+						{
+							_player->SetMoney(99);
+							DeleteItem(i);
+							break;
+						}
+						if (vItem[i].state == 유황)
+						{
+							_player->SetArrow(유황);
+							DeleteItem(i);
+							break;
+						}						
 					}
 				}
 			}		
@@ -142,7 +197,9 @@ void cItemManager::NewItemUpdate(int _currentmap)
 			{
 				if (vNewItem[i].currentmap == _currentmap)
 				{
-						
+					//==================================================================
+					//		## 아이템움직이는로직 ##
+					//==================================================================	
 					if (vNewItem[i].IsBomb==false)
 					{
 						if (vNewItem[i].moveSpeed>0.0f)
@@ -154,6 +211,7 @@ void cItemManager::NewItemUpdate(int _currentmap)
 						}
 					}
 
+
 					if (IntersectRect(&temp,&_player->GetRC(),&vNewItem[i].rc))
 					{
 						if (vNewItem[i].state == 열쇠)
@@ -161,12 +219,23 @@ void cItemManager::NewItemUpdate(int _currentmap)
 							_player->SetKey(_player->GetKey() + 1);
 							DeleteNewItem(i);
 						}
+						if (vNewItem[i].state == 동전1)
+						{
+							_player->SetMoney(_player->GetMoney() + 1);
+							DeleteNewItem(i);
+						}
+						if (vNewItem[i].state == 동전99)
+						{
+							_player->SetMoney(99);
+							DeleteNewItem(i);
+						}
 						if (vNewItem[i].state == 폭탄&&vNewItem[i].IsBomb == false)
 						{
 							_player->SetBomb(_player->GetBomb() + 1);
-							DeleteNewItem(i);
+							DeleteNewItem(i);							
 							break;
 						}
+						
 					}
 					
 					if (vNewItem[i].state == 폭탄&&vNewItem[i].IsBomb == true)
@@ -191,6 +260,7 @@ void cItemManager::NewItemUpdate(int _currentmap)
 
 void cItemManager::ItemRender(int _currentmap)
 {
+	SetTextColor(getMemDC(), RGB(0, 0, 0));
 	if (_sm->GetCurrentMap() == _currentmap)
 	{
 		for (int i = 0; i < vItem.size(); i++) 
@@ -199,11 +269,31 @@ void cItemManager::ItemRender(int _currentmap)
 			{
 				if (vItem[i].state == 열쇠)
 				{
-					IMAGEMANAGER->render("열쇠", getMemDC(), vItem[i].rc.left, vItem[i].rc.top, 0, 0, 50, 50);
+					//IMAGEMANAGER->render("열쇠", getMemDC(), vItem[i].rc.left, vItem[i].rc.top, 0, 0, 50, 50);
+					RectangleMake(getMemDC(), vItem[i].rc);
+					TextOut(getMemDC(), vItem[i].rc.left, vItem[i].rc.top, TEXT("열쇠"), lstrlen(TEXT("열쇠")));
 				}
 				if (vItem[i].state == 폭탄)
 				{
-					IMAGEMANAGER->render("폭탄", getMemDC(), vItem[i].rc.left, vItem[i].rc.top, 0, 0, 50, 50);
+					IMAGEMANAGER->render("폭탄", getMemDC(), vItem[i].rc.left, vItem[i].rc.top, 0, 0, 50, 50);					
+				}
+				if (vItem[i].state == 동전1)
+				{					
+					RectangleMake(getMemDC(), vItem[i].rc);
+					TextOut(getMemDC(), vItem[i].rc.left, vItem[i].rc.top, TEXT("동전1"), lstrlen(TEXT("동전1")));
+					//IMAGEMANAGER->render("동전1", getMemDC(), vItem[i].rc.left, vItem[i].rc.top, 0, 0, 50, 50);
+				}
+				if (vItem[i].state == 동전99)
+				{					
+					RectangleMake(getMemDC(), vItem[i].rc);
+					TextOut(getMemDC(), vItem[i].rc.left, vItem[i].rc.top, TEXT("동전99"), lstrlen(TEXT("동전99")));
+					//IMAGEMANAGER->render("동전1", getMemDC(), vItem[i].rc.left, vItem[i].rc.top, 0, 0, 50, 50);
+				}
+				if (vItem[i].state == 유황)
+				{
+					RectangleMake(getMemDC(), vItem[i].rc);
+					TextOut(getMemDC(), vItem[i].rc.left, vItem[i].rc.top, TEXT("유황"), lstrlen(TEXT("유황")));
+					//IMAGEMANAGER->render("동전1", getMemDC(), vItem[i].rc.left, vItem[i].rc.top, 0, 0, 50, 50);
 				}
 				//RectangleMake(getMemDC(), vItem[i].rc);
 			}
@@ -234,6 +324,15 @@ void cItemManager::NewItemRender(int _currentmap)
 					IMAGEMANAGER->render("폭탄", getMemDC(), vNewItem[i].x, vNewItem[i].y, 0, 0, 50, 50);
 					RectangleMake(getMemDC(), vNewItem[i].rc);
 				}
+				if (vNewItem[i].state==동전1)
+				{					
+					TextOut(getMemDC(), vItem[i].rc.left, vItem[i].rc.top, TEXT("동전1"), lstrlen(TEXT("동전1")));
+				}
+				if (vNewItem[i].state == 동전99)
+				{
+					TextOut(getMemDC(), vItem[i].rc.left, vItem[i].rc.top, TEXT("동전99"), lstrlen(TEXT("동전99")));
+				}
+
 			}
 			
 		}		

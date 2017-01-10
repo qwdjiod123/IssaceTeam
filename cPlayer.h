@@ -18,6 +18,7 @@ enum ESTATE
 class cPlayer : public gameNode
 {
 private:
+	TCHAR buffer[256];
 
 	cItemManager* _im;
 	bullet* _bullet;

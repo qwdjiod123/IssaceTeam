@@ -167,10 +167,14 @@ void cPlayer::render(void)
 	}
 	
 
-
-
-	TCHAR buffer[256];
-	wsprintf(buffer, TEXT("bomb:%d,  key:%d"), bomb, key);
+//////// 테스트
+	for (int i = 0; i < vInventory.size(); i++)
+	{
+		wsprintf(buffer, TEXT("플레이어인벤:%d"), vInventory[i]);
+		TextOut(getMemDC(), 100, 10+20*i, buffer, lstrlen(buffer));
+	}
+	
+	wsprintf(buffer, TEXT("bomb:%d,  key:%d  money:%d"), bomb, key, money);
 	TextOut(getMemDC(), 10, 10, buffer, lstrlen(buffer));
 
 	RectangleMake(getMemDC(), rc);

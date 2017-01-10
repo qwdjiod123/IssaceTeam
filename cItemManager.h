@@ -17,7 +17,8 @@ enum EITEM  // 패시브아이템다포함
 	기본총알 = 0,
 	폭탄,
 	열쇠,
-	동전,	
+	동전1,	
+	동전99, //테스트를위해
 	썩은고기, //피통+1 하트+1
 
 	유황, // 기본공격 바뀜! (이미지바뀜) 
@@ -77,7 +78,7 @@ public:
 
 	void ItemMapSet(float _x, float _y, int _state, int _currentmap); // 맵만드는사람이씁니다.
 		
-	void ItemUse(int _item,int _money=0); // 플레이어에서씁니다. 맵만드는사람이 쓸수도있슴.
+	void ItemUse(int _item); // 플레이어에서씁니다. 열쇠하고 동전제외
 	void ItemMake(float _x, float _y, int _state, int _currentmap);
 
 	void DeleteItem(int index); // 아이템매니져에서만 씁니다.
