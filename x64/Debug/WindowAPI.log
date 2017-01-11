@@ -1,9 +1,9 @@
 ﻿  bullet.cpp
 c:\users\sga\documents\github\issaceteam\bullet.cpp(48): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\sga\documents\github\issaceteam\bullet.cpp(50): error C2065: 'gravity': 선언되지 않은 식별자입니다.
 c:\users\sga\documents\github\issaceteam\bullet.cpp(55): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\sga\documents\github\issaceteam\bullet.cpp(72): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\sga\documents\github\issaceteam\bullet.cpp(71): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 c:\users\sga\documents\github\issaceteam\bullet.cpp(169): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 c:\users\sga\documents\github\issaceteam\bullet.cpp(184): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 c:\users\sga\documents\github\issaceteam\bullet.cpp(254): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 c:\users\sga\documents\github\issaceteam\bullet.cpp(268): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  WindowAPI.vcxproj -> C:\Users\SGA\Documents\GitHub\IssaceTeam\x64\Debug\WindowAPI.exe

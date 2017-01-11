@@ -32,7 +32,7 @@ void bullet::render(void)
 	}
 }
 
-void bullet::fire(float x, float y, float angle,float range, int damage, int bulletSpeed, float gravity)
+void bullet::fire(float x, float y, float angle,float range, int damage, int bulletSpeed)
 {
 	//총알 벡터에 담는것을 제한한다
 	if (_bulletMax < _vBullet.size() + 1) return;
@@ -47,7 +47,7 @@ void bullet::fire(float x, float y, float angle,float range, int damage, int bul
 	bullet.bulletImage = IMAGEMANAGER->findImage(_imageName);
 	bullet.speed = bulletSpeed;
 	bullet.angle = angle;
-	bullet.gravity = gravity;
+//	bullet.gravity = gravity;
 	bullet.x = bullet.fireX = x;
 	bullet.y = bullet.fireY = y;
 	bullet.rc = RectMakeCenter(bullet.x, bullet.y,
