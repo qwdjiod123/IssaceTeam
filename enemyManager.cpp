@@ -7,7 +7,7 @@ HRESULT enemyManager::init(void)
 	//미니언 생성
 	
 	_count = 0;
-
+	setMinion();
 	//총알클래스 생성 및 초기화
 	_bullet = new bullet;
 	//_bullet->init("bullet", 15);
@@ -56,7 +56,9 @@ void enemyManager::render(void)
 
 void enemyManager::setMinion(void)
 {
-	
+	groundEnemy* temp = new groundEnemy;
+	temp->init("worm_V","worm_H",100,100,3.0f,_player);
+	_vMinion.push_back(temp);
 }
 
 void enemyManager::minionBulletFire(void)

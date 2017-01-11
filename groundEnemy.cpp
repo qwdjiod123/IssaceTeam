@@ -16,11 +16,13 @@ HRESULT groundEnemy::init(void)
 	return S_OK;
 }
 
-HRESULT groundEnemy::init(char * V_ImgName, char * H_ImaName, POINT position, float moveSpeed, cPlayer* player)
+HRESULT groundEnemy::init(char * V_ImgName, char * H_ImaName,int x,int y, float moveSpeed, cPlayer* player)
 {
 	_v_img = IMAGEMANAGER->findImage(V_ImgName);
 	_h_img = IMAGEMANAGER->findImage(H_ImaName);
-	_rc = RectMakeCenter(position.x, position.y, _v_img->getWidth(), _v_img->getHeight());
+	_x = x;
+	_y = y;
+	_rc = RectMakeCenter(_x, _y, _v_img->getWidth(), _v_img->getHeight());
 	_moveSpeed = moveSpeed;
 	_attackCount = 0;
 	_player = player;
@@ -86,43 +88,47 @@ void groundEnemy::move()
 		_rc = RectMakeCenter(_x, _y, _h_img->getWidth(), _h_img->getHeight());
 	}
 
-	if (_y < _player->GetRC().bottom&&_y > _player->GetRC().top)//y범위에 걸렸을 경우
+	if (_attackCount <= 0)
 	{
-		if (_x < _player->GetRC().left)
+		if (_y < _player->GetRC().bottom&&_y > _player->GetRC().top)//y범위에 걸렸을 경우
 		{
-			isAttack = true;
-			_attackCount = 30;
-			_move = RIGHT;
-			_moveSpeed = 3.0f;
+			if (_x < _player->GetRC().left)
+			{
+				isAttack = true;
+				_attackCount = 30;
+				_move = RIGHT;
+				_moveSpeed = 3.0f;
+			}
+
+			if (_x > _player->GetRC().right)
+			{
+				isAttack = true;
+				_attackCount = 30;
+				_move = LEFT;
+				_moveSpeed = 3.0f;
+			}
 		}
 
-		if (_x < _player->GetRC().right)
+		if (_x > _player->GetRC().left&&_x < _player->GetRC().right)//y범위에 걸렸을 경우
 		{
-			isAttack = true;
-			_attackCount = 30;
-			_move = LEFT;
-			_moveSpeed = 3.0f;
+			if (_y < _player->GetRC().top)
+			{
+				isAttack = true;
+				_attackCount = 30;
+				_move = DOWN;
+				_moveSpeed = 3.0f;
+			}
+
+			if (_y >_player->GetRC().bottom)
+			{
+				isAttack = true;
+				_attackCount = 30;
+				_move = UP;
+				_moveSpeed = 3.0f;
+			}
 		}
 	}
-
-	if (_x > _player->GetRC().left&&_x < _player->GetRC().right)//y범위에 걸렸을 경우
-	{
-		if (_y < _player->GetRC().top)
-		{
-			isAttack = true;
-			_attackCount = 30;
-			_move = DOWN;
-			_moveSpeed = 3.0f;
-		}
-
-		if (_y >_player->GetRC().bottom)
-		{
-			isAttack = true;
-			_attackCount = 30;
-			_move = UP;
-			_moveSpeed = 3.0f;
-		}
-	}
+	
 
 	if (_attackCount > 0)
 	{
@@ -154,13 +160,13 @@ void groundEnemy::move()
 
 	//캐릭터 총알이랑 몬스터 몸체의 충돌
 	RECT colTemp;
-	for (int i = 0; i < _player->getBullet()->getVBullet().size(); i++)
+	for (int i = 0; i < _player->getBullet()->getVBulletPt()->size(); i++)
 	{
-		if (IntersectRect(&colTemp, &_rc, &_player->getBullet()->getVBullet()[i].rc))
+		if (IntersectRect(&colTemp, &_rc, &_player->getBullet()->getVBulletPt()->at(i).rc))
 		{
 			_knockBackCount = 5;
-			_knockBackAngle = getAngle(_player->getBullet()->getVBullet()[i].x, _player->getBullet()->getVBullet()[i].y, _x, _y);
-			_player->getBullet()->getVBullet().erase(_player->getBullet()->getVBullet().begin() + i);
+			_knockBackAngle = getAngle(_player->getBullet()->getVBulletPt()->at(i).x, _player->getBullet()->getVBulletPt()->at(i).y, _x, _y);
+			_player->getBullet()->getVBulletPt()->erase(_player->getBullet()->getVBulletPt()->begin() + i);
 			break;
 		}
 	}

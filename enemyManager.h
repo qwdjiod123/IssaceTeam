@@ -2,16 +2,17 @@
 #include "gameNode.h"
 #include "minion.h"
 #include "bullet.h"
-
+#include"groundEnemy.h"
 //상호참조용 플레이어 클래스 전방선언
 
-
+class cPlayer;
 class enemyManager : public gameNode
 {
 private:
 	vector<enemy*> _vMinion;
 	vector<enemy*>::iterator _viMinion;
 
+	cPlayer* _player;
 	bullet* _bullet;
 	int _count;
 
@@ -37,6 +38,8 @@ public:
 
 	//미니언 벡터 가져오기
 	vector<enemy*> getVMinion() { return _vMinion; }
+
+	void setPlayer(cPlayer* player) { _player = player; }
 
 	//상호참조시 플레이어포인터를 넘길 셋터함수
 	

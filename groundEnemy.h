@@ -33,7 +33,7 @@ private:
 public:
 
 	virtual HRESULT init(void);
-	HRESULT init(char* V_ImgName, char* H_ImaName, POINT position,float moveSpeed,cPlayer* player);
+	HRESULT init(char* V_ImgName, char* H_ImaName, int x, int y,float moveSpeed,cPlayer* player);
 	virtual void release(void);
 	virtual void update(void);
 	virtual void render(void);

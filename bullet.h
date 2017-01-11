@@ -49,6 +49,7 @@ public:
 
 	//ÃÑ¾Ëº¤ÅÍ °¡Á®¿À±â
 	vector<tagBullet> getVBullet() { return _vBullet; }
+	vector<tagBullet>* getVBulletPt() { return &_vBullet; }
 	vector<tagBullet>::iterator getViBullet() { return _viBullet; }
 
 public:
