@@ -26,68 +26,150 @@ HRESULT cPlayer::init(void)
 	rightFrame = 0;
 	upDownFrame = 0;
 	returnCount = 0;
+	bulletCount = 0;
 	fire = false;
+	bulletFire = false; 
+	//여기서 총알종류 두가지 만들 것임! 
+	_bullet = new bullet; 
+	_bullet->init("기본총알", 200);
+	_유황 = new bullet;
+	hp = 6;
+	maxHp = 6;
 	return S_OK;
 }
 
 void cPlayer::release(void)
 {
-
+	_bullet->release();
+	SAFE_DELETE(_bullet);
 
 }
 
 void cPlayer::update(void)
 {
-
-
-	if (KEYMANAGER->isStayKeyDown(VK_UP))
+	bulletCount++;
+	if (bulletCount % 10 == 0)
 	{
-		if (faceState == pLEFT)
+		if (KEYMANAGER->isStayKeyDown(VK_UP))
 		{
+			if (KEYMANAGER->isStayKeyDown('A'))
+			{
+				_bullet->fire(x, y, (PI / 1.9), 300, 10, 5);
+				//기본총알 이동거리 300, 데미지 10, 이동속도 5
+				
+			}
+			else if (KEYMANAGER->isStayKeyDown('D'))
+			{
+				_bullet->fire(x, y, (PI / 2.1), 300, 10, 5);
+				
+			}
+			else
+			{
+				_bullet->fire(x, y, (PI / 2), 300, 10, 5);
+		
+			}
+			fire = true;
+			faceState = pUP;
+		}
+
+	////////////////////
+		if (KEYMANAGER->isStayKeyDown(VK_DOWN))
+		{
+			if (KEYMANAGER->isStayKeyDown('A'))
+			{
+				_bullet->fire(x, y, -(PI / 1.5), 300, 10, 5);
+				
+				//기본총알 이동거리 300, 데미지 10, 이동속도 5
+			}
+			else if (KEYMANAGER->isStayKeyDown('D'))
+			{
+				_bullet->fire(x, y, -(PI / 2.5), 300, 10, 5);
+				
+			}
+			else
+			{
+				_bullet->fire(x, y, -(PI/2), 300, 10, 5);
+				
+			}
+			faceState = pIDLE;
+			fire = true;
 
 		}
-		else
-			faceState = pUP;
-		fire = true;
+		if (KEYMANAGER->isStayKeyDown(VK_LEFT))
+		{
+			if (KEYMANAGER->isStayKeyDown('W'))
+			{
+				_bullet->fire(x, y, (PI / 1.5), 300, 10, 5);
+				
+				//기본총알 이동거리 300, 데미지 10, 이동속도 5
+			}
+			else if (KEYMANAGER->isStayKeyDown('S'))
+			{
+				_bullet->fire(x, y, -(PI / 1.5), 300, 10, 5);
+				
+			}
+			else
+			{
+				_bullet->fire(x, y,PI , 300, 10, 5);
+				
+			}
+			faceState = pLEFT;
+			fire = true;
+		}
+		if (KEYMANAGER->isStayKeyDown(VK_RIGHT))
+		{
+			if (KEYMANAGER->isStayKeyDown('W'))
+			{
+				_bullet->fire(x, y, (PI / 2.5), 300, 10, 5);
+			
+				//기본총알 이동거리 300, 데미지 10, 이동속도 5
+			}
+			else if (KEYMANAGER->isStayKeyDown('S'))
+			{
+				_bullet->fire(x, y, -(PI / 2.5), 300, 10, 5);
+				
+			}
+			else
+			{
+				_bullet->fire(x, y, (PI * 2), 300, 10, 5);
+			
+			}
+			faceState = pRIGHT;
+			fire = true;
+		}
+	}
+	
 
-	}
-	if (KEYMANAGER->isStayKeyDown(VK_DOWN))
-	{
-		faceState = pIDLE;
-		fire = true;
+		if (KEYMANAGER->isStayKeyDown('D'))
+		{    if(fire==false)
+			faceState = pIDLE;
+			keyState = pRIGHT;
+			x += moveSpeed;
+		}
+		if (KEYMANAGER->isStayKeyDown('A'))
+		{
+			if (fire == false)
+			faceState = pIDLE;
+			keyState = pLEFT;
+			x -= moveSpeed;
+		}
+		if (KEYMANAGER->isStayKeyDown('W'))
+		{
+			if (fire == false)
+			faceState = pIDLE;
+			keyState = pUP;
+			y -= moveSpeed;
+		}
+		if (KEYMANAGER->isStayKeyDown('S'))
+		{
+			if (fire == false)
+			faceState = pIDLE;
+			keyState = pIDLE;
+			y += moveSpeed;
+		}
+	
 
-	}
-	if (KEYMANAGER->isStayKeyDown(VK_LEFT))
-	{
-		faceState = pLEFT;
-		fire = true;
-
-	}
-
-	if (KEYMANAGER->isStayKeyDown('D'))
-	{
-		faceState = pIDLE;
-		keyState = pRIGHT;
-		x += moveSpeed;
-	}
-	if (KEYMANAGER->isStayKeyDown('A'))
-	{
-		faceState = pIDLE;
-		keyState = pLEFT;
-		x -= moveSpeed;
-	}
-	if (KEYMANAGER->isStayKeyDown('W'))
-	{
-		faceState = pIDLE;
-		keyState = pUP;
-		y -= moveSpeed;
-	}
-	if (KEYMANAGER->isStayKeyDown('S'))
-	{
-		faceState = pIDLE;
-		keyState = pIDLE;
-		y += moveSpeed;
-	}
+	
 
 	if (KEYMANAGER->isOnceKeyDown('E'))
 	{
@@ -118,13 +200,14 @@ void cPlayer::update(void)
 	}
 
 	animation();
+	_bullet->update();
 	rc = RectMakeCenter(x, y, PLAYERSIZEX, PLAYERSIZEY);
 	rcHead = RectMakeCenter(x, y - PLAYERSIZEY / 2 - PLAYERHEADSIZEY / 2 + 15, PLAYERHEADSIZEX, PLAYERHEADSIZEY);
 }
 
 void cPlayer::render(void)
 {
-
+	_bullet->render();
 	for (int i = 0; i < vInventory.size(); i++)
 	{
 		if (vInventory[i] == 유황)

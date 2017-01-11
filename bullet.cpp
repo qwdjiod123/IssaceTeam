@@ -9,8 +9,6 @@ HRESULT bullet::init(char * imageName, int bulletMax)
 	_imageName = imageName;
 	//총알갯수 및 총알사거리 초기화
 	_bulletMax = bulletMax;
-	
-
 	return S_OK;
 }
 
@@ -34,7 +32,7 @@ void bullet::render(void)
 	}
 }
 
-void bullet::fire(float x, float y, float angle, float range, int damage, int bulletSpeed)
+void bullet::fire(float x, float y, float angle,float range, int damage, int bulletSpeed, float gravity)
 {
 	//총알 벡터에 담는것을 제한한다
 	if (_bulletMax < _vBullet.size() + 1) return;
@@ -49,6 +47,7 @@ void bullet::fire(float x, float y, float angle, float range, int damage, int bu
 	bullet.bulletImage = IMAGEMANAGER->findImage(_imageName);
 	bullet.speed = bulletSpeed;
 	bullet.angle = angle;
+	bullet.gravity = gravity;
 	bullet.x = bullet.fireX = x;
 	bullet.y = bullet.fireY = y;
 	bullet.rc = RectMakeCenter(bullet.x, bullet.y,
@@ -64,7 +63,7 @@ void bullet::move(void)
 	_viBullet = _vBullet.begin();
 	for (; _viBullet != _vBullet.end();)
 	{
-		_viBullet->x += cosf(_viBullet->angle) * _viBullet->speed;
+		_viBullet->x += cosf(_viBullet->angle) * _viBullet->speed ;
 		_viBullet->y += -sinf(_viBullet->angle) * _viBullet->speed;
 
 		_viBullet->rc = RectMakeCenter(_viBullet->x, _viBullet->y,
@@ -76,6 +75,7 @@ void bullet::move(void)
 			_viBullet->x, _viBullet->y);
 		if (_viBullet->_range < distance)
 		{
+			
 			_viBullet = _vBullet.erase(_viBullet);
 		}
 		else
@@ -151,7 +151,6 @@ void missile::render(void)
 			}
 			_viBullet->count = 0;
 		}
-	
 	}
 }
 

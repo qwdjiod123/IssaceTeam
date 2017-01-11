@@ -21,6 +21,7 @@ private:
 	TCHAR buffer[256]; // Textout할때 쓰는용도!
 
 	bullet* _bullet;
+	bullet* _유황;
 	cItemManager* _im;
 	PlayerFaceState faceState;
 	PlayerFaceState keyState;
@@ -29,9 +30,11 @@ private:
 	float x;
 	float y;
 	//애니메이션 
+	int bulletCount;
 	int frameCount;
 	int returnCount;
 	bool fire;
+	bool bulletFire;
 	int leftFrame;
 	int rightFrame;
 	int upDownFrame;
@@ -49,6 +52,7 @@ private:
 	//		## 스탯 ## 추가로들어갈거 수정필수!
 	//==================================================================
 	int hp;  //체력
+	int maxHp;
 	int range; //총알범위
 	int damage;	//대미지
 	int tears; //총알발사간격,연사속도
@@ -91,6 +95,12 @@ public:
 
 	float GetY() { return y; }
 	void SetY(float _y) { y = _y; }
+
+	int GetHp() { return hp; }
+	void SetHp(int _hp) { hp = _hp; }
+
+	int GetmaxHp() { return maxHp; }
+	void SetmaxHp(int _maxHp) { maxHp = _maxHp; }
 
 	void addInVentory(int _item); // 아이템 매니져에서 씀
 

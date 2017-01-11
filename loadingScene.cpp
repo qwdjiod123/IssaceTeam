@@ -69,6 +69,7 @@ void loadingScene::loadingImage(void)
 	_loading->loadFrameImage("아이작왼쪽몸통", "WALKLEFT.bmp", 180 * 3, 15 * 3, 10, 1, true, RGB(255, 0, 255));
 	_loading->loadFrameImage("아이작오른쪽몸통", "아이작RIGHT.bmp", 180 * 3, 15 * 3, 10,1,true, RGB(255, 0, 255));
 	_loading->loadFrameImage("아이작UPDOWN", "아이작UPDOWN.bmp", 180 * 3, 15 * 3, 10, 1, true, RGB(255, 0, 255));
+	_loading->loadImage("기본총알", "기본총알.bmp", 26, 26, true, RGB(255, 0, 255));
 }
 //로딩사운드 함수(이곳에 사운드를 전부 넣어라)
 void loadingScene::loadingSound(void)
