@@ -60,7 +60,7 @@ using namespace MY_UTIL;
 #define WINSTARTX	0
 #define WINSTARTY	0
 #define WINSIZEX		800
-#define WINSIZEY		500
+#define WINSIZEY		600
 #define WINSTYLE		WS_CAPTION | WS_SYSMENU
 
 //====================================================================

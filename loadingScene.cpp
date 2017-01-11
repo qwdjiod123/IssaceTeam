@@ -56,7 +56,7 @@ void loadingScene::loadingImage(void)
 	//백그라운드 이미지
 	//_loading->loadImage("백그라운드", "background.bmp", WINSIZEX, WINSIZEY);
 	_loading->loadImage("총알", "ball.bmp", 10, 10);
-	_loading->loadImage("map1", "map1.bmp", WINSIZEX, WINSIZEY);
+	_loading->loadImage("map1", "inGameInfo.bmp", WINSIZEX, WINSIZEY);
 	_loading->loadImage("map2", "map2.bmp", WINSIZEX, WINSIZEY);
 	_loading->loadImage("map3", "map3.bmp", WINSIZEX, WINSIZEY);
 	_loading->loadImage("폭탄", "bomb.bmp", 50, 50);
