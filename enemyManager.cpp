@@ -51,13 +51,23 @@ void enemyManager::render(void)
 		(*_viMinion)->render();
 	}
 
+	_viMinion = _vMinion.begin();
+	for (_viMinion; _viMinion != _vMinion.end(); ++_viMinion)
+	{
+		if ((*_viMinion)->getHP() <= 0)
+		{
+			_viMinion=_vMinion.erase(_viMinion);
+			break;
+		}
+	}
+
 	_bullet->render();
 }
 
 void enemyManager::setMinion(void)
 {
 	groundEnemy* temp = new groundEnemy;
-	temp->init("worm_V","worm_H",100,100,3.0f,_player);
+	temp->init("worm_V","worm_H",100,200,3.0f,_player,_im);
 	_vMinion.push_back(temp);
 }
 

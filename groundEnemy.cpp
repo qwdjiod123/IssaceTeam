@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "groundEnemy.h"
 #include"cPlayer.h"
+#include"cItemManager.h"
 
 groundEnemy::groundEnemy()
 {
@@ -16,7 +17,7 @@ HRESULT groundEnemy::init(void)
 	return S_OK;
 }
 
-HRESULT groundEnemy::init(char * V_ImgName, char * H_ImaName,int x,int y, float moveSpeed, cPlayer* player)
+HRESULT groundEnemy::init(char * V_ImgName, char * H_ImaName,int x,int y, float moveSpeed, cPlayer* player, cItemManager* im)
 {
 	_v_img = IMAGEMANAGER->findImage(V_ImgName);
 	_h_img = IMAGEMANAGER->findImage(H_ImaName);
@@ -26,9 +27,11 @@ HRESULT groundEnemy::init(char * V_ImgName, char * H_ImaName,int x,int y, float 
 	_moveSpeed = moveSpeed;
 	_attackCount = 0;
 	_player = player;
+	_im = im;
 	isAttack = false;
 	_moveCount = RND->getFromIntTo(10, 30);
 	_move = LEFT;
+	_HP = 5;
 	return E_NOTIMPL;
 }
 
@@ -167,9 +170,13 @@ void groundEnemy::move()
 			_knockBackCount = 5;
 			_knockBackAngle = getAngle(_player->getBullet()->getVBulletPt()->at(i).x, _player->getBullet()->getVBulletPt()->at(i).y, _x, _y);
 			_player->getBullet()->getVBulletPt()->erase(_player->getBullet()->getVBulletPt()->begin() + i);
+			_HP--;
 			break;
 		}
 	}
+
+	//적이랑 폭탄 렉트의 충돌
+
 
 }
 

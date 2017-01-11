@@ -24,6 +24,13 @@ public:
 	virtual void update(void);
 	virtual void render(void);
 
+	virtual void setSpeed(float speed) { }
+	virtual float getSpeed() { return 0; }
+
+	virtual void setHP(float HP) { }
+	virtual float getHP() { return 0; }
+
+
 	virtual void move();			//업데이트에 넣기
 	virtual void draw();			//렌더 안에 넣기
 	virtual void animation();		//업데이트에 넣기
