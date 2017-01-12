@@ -1,43 +1,173 @@
-<<<<<<< HEAD
-﻿  cPlayer.cpp
-c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(24): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(25): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(55): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(55): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(61): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(61): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(67): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(67): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(73): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(73): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(111): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(112): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
+﻿cl : 명령줄 warning D9028: 최소 다시 빌드에 실패했습니다. 정상 빌드로 되돌립니다.
+  stdafx.cpp
   winMain.cpp
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.h(106): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.h(107): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 c:\users\jo\documents\visual 소스코드(수업)\issaceteam\winmain.cpp(119): warning C4244: 'return': 'WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  util.cpp
+  txtData.cpp
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\txtdata.cpp(21): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: 'strcpy' 선언을 참조하십시오.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\txtdata.cpp(37): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(90): note: 'strcat' 선언을 참조하십시오.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\txtdata.cpp(40): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(90): note: 'strcat' 선언을 참조하십시오.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\txtdata.cpp(70): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(453): note: 'strtok' 선언을 참조하십시오.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\txtdata.cpp(73): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(453): note: 'strtok' 선언을 참조하십시오.
+  sceneTest.cpp
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\scenetest.cpp(26): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\scenetest.cpp(25): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+  sceneManager.cpp
+  progressBar.cpp
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\progressbar.cpp(11): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\progressbar.cpp(12): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\progressbar.cpp(28): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\progressbar.cpp(29): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\progressbar.cpp(24): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\progressbar.cpp(25): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\progressbar.cpp(49): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  playerData.cpp
+  pixelCollision.cpp
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\pixelcollision.cpp(16): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\pixelcollision.cpp(19): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\pixelcollision.cpp(41): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\pixelcollision.cpp(43): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\pixelcollision.cpp(49): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\pixelcollision.cpp(56): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\pixelcollision.cpp(83): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   mainGame.cpp
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.h(106): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.h(107): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  loadingScene.cpp
+  loading.cpp
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\loading.cpp(27): warning C4800: 'BOOL': 'true' 또는 'false'로 bool 값을 강제하고 있습니다(성능 경고).
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\loading.cpp(40): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\loading.cpp(41): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\loading.cpp(44): warning C4800: 'BOOL': 'true' 또는 'false'로 bool 값을 강제하고 있습니다(성능 경고).
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\loading.cpp(61): warning C4800: 'BOOL': 'true' 또는 'false'로 bool 값을 강제하고 있습니다(성능 경고).
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\loading.cpp(74): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\loading.cpp(75): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\loading.cpp(80): warning C4800: 'BOOL': 'true' 또는 'false'로 bool 값을 강제하고 있습니다(성능 경고).
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\loading.cpp(133): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\loading.cpp(139): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\loading.cpp(142): warning C4805: '==': 연산에 'BOOL' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\loading.cpp(214): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\loading.cpp(228): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\loading.cpp(248): warning C4244: '인수': 'unsigned __int64'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\loading.cpp(248): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\loading.cpp(237): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\loading.cpp(239): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(90): note: 'strcat' 선언을 참조하십시오.
+  keyManager.cpp
+  iniTestScene.cpp
+  iniData.cpp
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\inidata.cpp(32): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\inidata.cpp(34): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(90): note: 'strcat' 선언을 참조하십시오.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\inidata.cpp(48): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\inidata.cpp(50): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(90): note: 'strcat' 선언을 참조하십시오.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\inidata.cpp(65): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\inidata.cpp(67): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(90): note: 'strcat' 선언을 참조하십시오.
+  imageManager.cpp
+  image.cpp
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\image.cpp(109): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\image.cpp(151): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\image.cpp(197): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\image.cpp(245): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\image.cpp(351): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   groundEnemy.cpp
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.h(106): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.h(107): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 c:\users\jo\documents\visual 소스코드(수업)\issaceteam\groundenemy.cpp(65): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 c:\users\jo\documents\visual 소스코드(수업)\issaceteam\groundenemy.cpp(69): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  cSceneManager.cpp
-  cSceneGame.cpp
-  cItemManager.cpp
-c:\users\jo\documents\visual 소스코드(수업)\issaceteam\citemmanager.cpp(48): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\jo\documents\visual 소스코드(수업)\issaceteam\citemmanager.cpp(86): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\jo\documents\visual 소스코드(수업)\issaceteam\citemmanager.cpp(166): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\jo\documents\visual 소스코드(수업)\issaceteam\citemmanager.cpp(213): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\jo\documents\visual 소스코드(수업)\issaceteam\citemmanager.cpp(217): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  gameNode.cpp
+  enemyManager.cpp
+  enemy.cpp
   코드를 생성하고 있습니다...
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\inidata.cpp(55): warning C4172: 지역 변수 또는 임시: data의 주소를 반환하고 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\txtdata.cpp(44): warning C4172: 지역 변수 또는 임시: str의 주소를 반환하고 있습니다.
+  컴파일하고 있습니다...
+  cSceneManager.cpp
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.h(106): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.h(107): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  cSceneGame.cpp
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.h(106): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.h(107): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  cPlayer.cpp
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.h(106): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.h(107): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(25): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(26): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(238): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(238): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(238): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(244): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(244): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(244): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(249): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(249): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(261): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(261): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(267): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(267): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(272): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(272): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(283): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(283): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(289): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(289): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(294): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(294): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(304): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(304): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(310): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(310): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(315): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(315): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(331): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(331): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(337): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(337): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(343): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(343): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(349): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(349): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(415): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.cpp(416): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  cItemManager.cpp
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.h(106): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\cplayer.h(107): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\citemmanager.cpp(47): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\citemmanager.cpp(92): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\citemmanager.cpp(135): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\citemmanager.cpp(210): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\citemmanager.cpp(246): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\citemmanager.cpp(324): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  bullet.cpp
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\bullet.cpp(48): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\bullet.cpp(55): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\bullet.cpp(71): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\bullet.cpp(142): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\bullet.cpp(145): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\bullet.cpp(151): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\bullet.cpp(167): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\bullet.cpp(179): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\bullet.cpp(191): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\bullet.cpp(203): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\bullet.cpp(286): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\jo\documents\visual 소스코드(수업)\issaceteam\bullet.cpp(300): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  LINK : C:\Users\jo\Documents\Visual 소스코드(수업)\IssaceTeam\x64\Debug\WindowAPI.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
   WindowAPI.vcxproj -> C:\Users\jo\Documents\Visual 소스코드(수업)\IssaceTeam\x64\Debug\WindowAPI.exe
   WindowAPI.vcxproj -> C:\Users\jo\Documents\Visual 소스코드(수업)\IssaceTeam\x64\Debug\WindowAPI.pdb (Full PDB)
-=======
-﻿  cItemManager.cpp
-c:\users\sga\desktop\새 폴더 (2)\issaceteam\citemmanager.cpp(47): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\sga\desktop\새 폴더 (2)\issaceteam\citemmanager.cpp(92): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\sga\desktop\새 폴더 (2)\issaceteam\citemmanager.cpp(135): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\sga\desktop\새 폴더 (2)\issaceteam\citemmanager.cpp(210): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\sga\desktop\새 폴더 (2)\issaceteam\citemmanager.cpp(246): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\sga\desktop\새 폴더 (2)\issaceteam\citemmanager.cpp(324): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  WindowAPI.vcxproj -> C:\Users\SGA\Desktop\새 폴더 (2)\IssaceTeam\x64\Debug\WindowAPI.exe
->>>>>>> origin/master

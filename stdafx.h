@@ -75,3 +75,9 @@ using namespace MY_UTIL;
 extern HINSTANCE _hInstance;
 extern HWND _hWnd;
 extern POINT _ptMouse;
+
+//플레이어 정보 
+#define PLAYERSIZEX 30// 플레이어렉트사이즈
+#define PLAYERSIZEY 25
+#define PLAYERHEADSIZEX 52
+#define PLAYERHEADSIZEY 44

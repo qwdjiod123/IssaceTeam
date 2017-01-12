@@ -40,7 +40,7 @@ public:
 	void render(void);
 
 	//총알발사
-	void fire(float x, float y, float angle, float range,int damage,int bulletSpeed);
+	void fire(float x, float y, float angle, float range, int damage, int bulletSpeed);
 	//총알무브
 	void move(void);
 
@@ -49,6 +49,7 @@ public:
 
 	//총알벡터 가져오기
 	vector<tagBullet> getVBullet() { return _vBullet; }
+	vector<tagBullet>* getVBulletPt() { return &_vBullet; }
 	vector<tagBullet>::iterator getViBullet() { return _viBullet; }
 
 public:
@@ -57,7 +58,7 @@ public:
 };
 
 //=============================================================
-//	## missile ## (missile[0] => 배열처럼 미리 장전해두고 총알발사)
+//	## 유황이미지 ## (missile[0] => 배열처럼 미리 장전해두고 총알발사)
 //=============================================================
 class missile : public gameNode
 {
@@ -78,7 +79,7 @@ public:
 	void render(void);
 
 	//총알발사
-	void fire(float x, float y);
+	void fire(float x, float y, int bulletKind, float range, int damage, int bulletSpeed);
 	//총알무브
 	void move(void);
 
