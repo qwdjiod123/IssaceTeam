@@ -40,7 +40,7 @@ public:
 	void render(void);
 
 	//ÃÑ¾Ë¹ß»ç
-	void fire(float x, float y, float angle, float range, int damage, int bulletSpeed);
+	void fire(float x, float y, float angle, float range,int damage,int bulletSpeed);
 	//ÃÑ¾Ë¹«ºê
 	void move(void);
 

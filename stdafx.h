@@ -63,6 +63,7 @@ using namespace MY_UTIL;
 #define WINSIZEY		600
 #define WINSTYLE		WS_CAPTION | WS_SYSMENU
 
+
 //====================================================================
 //			## 메크로함수 ## (클래스 동적할당된 부분 해제)
 //====================================================================
@@ -81,3 +82,4 @@ extern POINT _ptMouse;
 #define PLAYERSIZEY 25
 #define PLAYERHEADSIZEX 52
 #define PLAYERHEADSIZEY 44
+

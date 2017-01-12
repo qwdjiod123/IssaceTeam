@@ -4,10 +4,7 @@
 
 HRESULT cPlayer::init(void)
 {
-<<<<<<< HEAD
 	//기본 플레이어 정보 
-=======
->>>>>>> origin/master
 	IsFly = false;
 	key = 0;
 	money = 0;
@@ -23,12 +20,11 @@ HRESULT cPlayer::init(void)
 	damage = 1;
 	tears = 10;
 	bulletSpeed = 3;
-<<<<<<< HEAD
 	hp = 6;
 	maxHp = 6;
 	rc = RectMakeCenter(x, y, PLAYERSIZEX, PLAYERSIZEY); //플레이어 몸통
 	rcHead = RectMakeCenter(x, y - PLAYERSIZEY / 2 - PLAYERHEADSIZEY / 2 + 10, PLAYERHEADSIZEX, PLAYERHEADSIZEY);//플레이어 머리 
-																												 //애니메이션 필요한 Count 
+//애니메이션 필요한 Count 
 	frameCount = 0;
 	leftFrame = 0;               //왼쪽걸어갈때 
 	rightFrame = 0;            //오른쪽걸어갈때
@@ -36,29 +32,11 @@ HRESULT cPlayer::init(void)
 	returnCount = 0;         //다시 머리 고개를 돌리는 카운트 
 	bulletCount = 0;         //총알발사되는 카운트 
 	fire = false;               //총알이 발사 되었냐?
-								//여기서 총알종류 두가지 만들 것임! 
-	_bullet = new bullet;
-	_bullet->init("기본총알", 200);
-	_유황 = new missile;
-	_유황->init(200, 200);
-=======
-	rc = RectMakeCenter(x, y, PLAYERSIZEX, PLAYERSIZEY); //플레이어 몸통
-	rcHead = RectMakeCenter(x, y - PLAYERSIZEY / 2 - PLAYERHEADSIZEY / 2 + 15, PLAYERHEADSIZEX, PLAYERHEADSIZEY);//플레이어 머리 
-	frameCount = 0;
-	leftFrame = 0;
-	rightFrame = 0;
-	upDownFrame = 0;
-	returnCount = 0;
-	bulletCount = 0;
-	fire = false;
-	bulletFire = false; 
-	//여기서 총알종류 두가지 만들 것임! 
+//여기서 총알종류 두가지 만들 것임! 
 	_bullet = new bullet; 
 	_bullet->init("기본총알", 200);
-	_유황 = new bullet;
-	hp = 6;
-	maxHp = 6;
->>>>>>> origin/master
+	_유황 = new missile;
+	_유황->init(200, 200); 
 	return S_OK;
 }
 
@@ -66,17 +44,12 @@ void cPlayer::release(void)
 {
 	_bullet->release();
 	SAFE_DELETE(_bullet);
-<<<<<<< HEAD
 	_유황->release();
 	SAFE_DELETE(_유황);
-=======
-
->>>>>>> origin/master
 }
 
 void cPlayer::update(void)
 {
-<<<<<<< HEAD
 	PlayerKeyState();
 	bulletFire();
 	animation();
@@ -90,15 +63,10 @@ void cPlayer::render(void)
 	_bullet->render();
 	_유황->render();
 	for (int i = 0; i < vInventory.size(); i++)
-=======
-	bulletCount++;
-	if (bulletCount % 10 == 0)
->>>>>>> origin/master
 	{
 		if (vInventory[i] == 유황)
 		{
-<<<<<<< HEAD
-			arrow = 유황;
+			arrow = 유황; 
 		}
 		if (vInventory[i] == 구렁텅이의군주)
 		{
@@ -120,138 +88,6 @@ void cPlayer::render(void)
 			IMAGEMANAGER->frameRender("아이작UPDOWN", getMemDC(), rc.left, rc.top, upDownFrame, 1);
 		}
 		else if (KEYMANAGER->isStayKeyDown('S'))
-=======
-			if (KEYMANAGER->isStayKeyDown('A'))
-			{
-				_bullet->fire(x, y, (PI / 1.9), 300, 10, 5);
-				//기본총알 이동거리 300, 데미지 10, 이동속도 5
-				
-			}
-			else if (KEYMANAGER->isStayKeyDown('D'))
-			{
-				_bullet->fire(x, y, (PI / 2.1), 300, 10, 5);
-				
-			}
-			else
-			{
-				_bullet->fire(x, y, (PI / 2), 300, 10, 5);
-		
-			}
-			fire = true;
-			faceState = pUP;
-		}
-
-	////////////////////
-		if (KEYMANAGER->isStayKeyDown(VK_DOWN))
-		{
-			if (KEYMANAGER->isStayKeyDown('A'))
-			{
-				_bullet->fire(x, y, -(PI / 1.5), 300, 10, 5);
-				
-				//기본총알 이동거리 300, 데미지 10, 이동속도 5
-			}
-			else if (KEYMANAGER->isStayKeyDown('D'))
-			{
-				_bullet->fire(x, y, -(PI / 2.5), 300, 10, 5);
-				
-			}
-			else
-			{
-				_bullet->fire(x, y, -(PI/2), 300, 10, 5);
-				
-			}
-			faceState = pIDLE;
-			fire = true;
-
-		}
-		if (KEYMANAGER->isStayKeyDown(VK_LEFT))
-		{
-			if (KEYMANAGER->isStayKeyDown('W'))
-			{
-				_bullet->fire(x, y, (PI / 1.5), 300, 10, 5);
-				
-				//기본총알 이동거리 300, 데미지 10, 이동속도 5
-			}
-			else if (KEYMANAGER->isStayKeyDown('S'))
-			{
-				_bullet->fire(x, y, -(PI / 1.5), 300, 10, 5);
-				
-			}
-			else
-			{
-				_bullet->fire(x, y,PI , 300, 10, 5);
-				
-			}
-			faceState = pLEFT;
-			fire = true;
-		}
-		if (KEYMANAGER->isStayKeyDown(VK_RIGHT))
-		{
-			if (KEYMANAGER->isStayKeyDown('W'))
-			{
-				_bullet->fire(x, y, (PI / 2.5), 300, 10, 5);
-			
-				//기본총알 이동거리 300, 데미지 10, 이동속도 5
-			}
-			else if (KEYMANAGER->isStayKeyDown('S'))
-			{
-				_bullet->fire(x, y, -(PI / 2.5), 300, 10, 5);
-				
-			}
-			else
-			{
-				_bullet->fire(x, y, (PI * 2), 300, 10, 5);
-			
-			}
-			faceState = pRIGHT;
-			fire = true;
-		}
-	}
-	
-
-		if (KEYMANAGER->isStayKeyDown('D'))
-		{    if(fire==false)
-			faceState = pIDLE;
-			keyState = pRIGHT;
-			x += moveSpeed;
-		}
-		if (KEYMANAGER->isStayKeyDown('A'))
-		{
-			if (fire == false)
-			faceState = pIDLE;
-			keyState = pLEFT;
-			x -= moveSpeed;
-		}
-		if (KEYMANAGER->isStayKeyDown('W'))
-		{
-			if (fire == false)
-			faceState = pIDLE;
-			keyState = pUP;
-			y -= moveSpeed;
-		}
-		if (KEYMANAGER->isStayKeyDown('S'))
-		{
-			if (fire == false)
-			faceState = pIDLE;
-			keyState = pIDLE;
-			y += moveSpeed;
-		}
-	
-
-	
-
-	if (KEYMANAGER->isOnceKeyDown('E'))
-	{
-		if (bomb > 0)
-		{
-			_im->ItemUse(폭탄);
-		}
-	}
-
-	if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
-	{
-		if (space == 박사의조정기)
->>>>>>> origin/master
 		{
 			IMAGEMANAGER->frameRender("아이작UPDOWN", getMemDC(), rc.left, rc.top, upDownFrame, 1);
 		}
@@ -260,17 +96,11 @@ void cPlayer::render(void)
 			IMAGEMANAGER->render("아이작몸통", getMemDC(), rc.left, rc.top, 0, 0, PLAYERSIZEX, PLAYERSIZEY);
 		}
 
-<<<<<<< HEAD
 		switch (faceState)
-=======
-	if (KEYMANAGER->isOnceKeyDown('Q'))
-	{
-		if (card == 카드)
->>>>>>> origin/master
 		{
 		case pLEFT:
 			IMAGEMANAGER->render("아이작왼쪽얼굴", getMemDC(), rcHead.left, rcHead.top, 0, 0, PLAYERHEADSIZEX, PLAYERHEADSIZEY);
-			//	cout << "left" << endl;
+		//	cout << "left" << endl;
 			break;
 		case pRIGHT:
 			IMAGEMANAGER->render("아이작오른쪽얼굴", getMemDC(), rcHead.left, rcHead.top, 0, 0, PLAYERHEADSIZEX, PLAYERHEADSIZEY);
@@ -285,38 +115,17 @@ void cPlayer::render(void)
 			break;
 		}
 	}
-<<<<<<< HEAD
 	//RectangleMake(getMemDC(), rc);
 	else if (arrow == 유황)
 	{
 		if (KEYMANAGER->isStayKeyDown('D'))
-=======
-
-	animation();
-	_bullet->update();
-	rc = RectMakeCenter(x, y, PLAYERSIZEX, PLAYERSIZEY);
-	rcHead = RectMakeCenter(x, y - PLAYERSIZEY / 2 - PLAYERHEADSIZEY / 2 + 15, PLAYERHEADSIZEX, PLAYERHEADSIZEY);
-}
-
-void cPlayer::render(void)
-{
-	_bullet->render();
-	for (int i = 0; i < vInventory.size(); i++)
-	{
-		if (vInventory[i] == 유황)
->>>>>>> origin/master
 		{
 			IMAGEMANAGER->frameRender("유황왼쪽몸통", getMemDC(), rc.left, rc.top, leftFrame, 1);
 		}
-<<<<<<< HEAD
 		else if (KEYMANAGER->isStayKeyDown('A'))
-=======
-		if (vInventory[i] == 구렁텅이의군주)
->>>>>>> origin/master
 		{
 			IMAGEMANAGER->frameRender("유황오른쪽몸통", getMemDC(), rc.left, rc.top, rightFrame, 1);
 		}
-<<<<<<< HEAD
 		else if (KEYMANAGER->isStayKeyDown('W'))
 		{
 			IMAGEMANAGER->frameRender("유황UPDOWN", getMemDC(), rc.left, rc.top, upDownFrame, 1);
@@ -340,7 +149,7 @@ void cPlayer::render(void)
 			IMAGEMANAGER->render("유황오른쪽얼굴", getMemDC(), rcHead.left, rcHead.top, 0, 0, PLAYERHEADSIZEX, PLAYERHEADSIZEY);
 			break;
 		case pIDLE:
-			IMAGEMANAGER->render("유황IDLE", getMemDC(), rcHead.left - 5, rcHead.top, 0, 0, PLAYERHEADSIZEX + 10, PLAYERHEADSIZEY);
+			IMAGEMANAGER->render("유황IDLE", getMemDC(), rcHead.left-5, rcHead.top, 0, 0, PLAYERHEADSIZEX+10, PLAYERHEADSIZEY);
 			break;
 		case pUP:
 			IMAGEMANAGER->render("유황뒷통수", getMemDC(), rcHead.left, rcHead.top, 0, 0, PLAYERHEADSIZEX, PLAYERHEADSIZEY);
@@ -350,51 +159,6 @@ void cPlayer::render(void)
 		}
 	}
 
-=======
-	}
-
-	//RectangleMake(getMemDC(), rc);
-	if (KEYMANAGER->isStayKeyDown('D'))
-	{
-		IMAGEMANAGER->frameRender("아이작왼쪽몸통", getMemDC(), rc.left, rc.top, leftFrame, 1);
-	}
-	else if (KEYMANAGER->isStayKeyDown('A'))
-	{
-		IMAGEMANAGER->frameRender("아이작오른쪽몸통", getMemDC(), rc.left, rc.top, rightFrame, 1);
-	}
-	else if (KEYMANAGER->isStayKeyDown('W'))
-	{
-		IMAGEMANAGER->frameRender("아이작UPDOWN", getMemDC(), rc.left, rc.top, upDownFrame, 1);
-	}
-	else if (KEYMANAGER->isStayKeyDown('S'))
-	{
-		IMAGEMANAGER->frameRender("아이작UPDOWN", getMemDC(), rc.left, rc.top, upDownFrame, 1);
-	}
-	else
-	{
-		IMAGEMANAGER->render("아이작몸통", getMemDC(), rc.left, rc.top, 0, 0, PLAYERSIZEX, PLAYERSIZEY);
-	}
-
-	switch (faceState)
-	{
-	case pLEFT:
-		IMAGEMANAGER->render("아이작왼쪽얼굴", getMemDC(), rcHead.left, rcHead.top, 0, 0, PLAYERHEADSIZEX, PLAYERHEADSIZEY);
-		cout << "left" << endl;
-		break;
-	case pRIGHT:
-		IMAGEMANAGER->render("아이작오른쪽얼굴", getMemDC(), rcHead.left, rcHead.top, 0, 0, PLAYERHEADSIZEX, PLAYERHEADSIZEY);
-		break;
-	case pIDLE:
-		IMAGEMANAGER->render("아이작IDLE", getMemDC(), rcHead.left, rcHead.top, 0, 0, PLAYERHEADSIZEX, PLAYERHEADSIZEY);
-		break;
-	case pUP:
-		IMAGEMANAGER->render("아이작뒷통수", getMemDC(), rcHead.left, rcHead.top, 0, 0, PLAYERHEADSIZEX, PLAYERHEADSIZEY);
-		break;
-	default:
-		break;
-	}
-
->>>>>>> origin/master
 	//==================================================================
 	//		## 수치확인용 ##
 	//==================================================================
@@ -458,7 +222,6 @@ void cPlayer::animation(void)
 			upDownFrame = 0;
 	}
 	RectangleMake(getMemDC(), rc);
-<<<<<<< HEAD
 }
 
 void cPlayer::bulletFire(void)
@@ -557,7 +320,7 @@ void cPlayer::bulletFire(void)
 			}
 		}
 	}
-	else if (arrow == 유황)
+	else if  (arrow == 유황)
 	{
 		bulletCount++;
 		if (bulletCount % 20 == 0)
@@ -653,10 +416,6 @@ void cPlayer::PlayerKeyState(void)
 	rcHead = RectMakeCenter(x, y - PLAYERSIZEY / 2 - PLAYERHEADSIZEY / 2 + 10, PLAYERHEADSIZEX, PLAYERHEADSIZEY);
 }
 
-=======
-}
-
->>>>>>> origin/master
 void cPlayer::addInVentory(int _item)
 {
 	vInventory.push_back(_item);

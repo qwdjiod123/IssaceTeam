@@ -38,7 +38,7 @@ void bullet::fire(float x, float y, float angle,float range, int damage, int bul
 	if (_bulletMax < _vBullet.size() + 1) return;
 
 	tagBullet bullet;
-
+	
 	//제로메모리 모르면 사용안해도 무방함
 	//구조체의 변수들을 한번에 0으로 초기화 시켜준다
 	ZeroMemory(&bullet, sizeof(tagBullet));
@@ -47,11 +47,7 @@ void bullet::fire(float x, float y, float angle,float range, int damage, int bul
 	bullet.bulletImage = IMAGEMANAGER->findImage(_imageName);
 	bullet.speed = bulletSpeed;
 	bullet.angle = angle;
-<<<<<<< HEAD
-	//	bullet.gravity = gravity;
-=======
 //	bullet.gravity = gravity;
->>>>>>> origin/master
 	bullet.x = bullet.fireX = x;
 	bullet.y = bullet.fireY = y;
 	bullet.rc = RectMakeCenter(bullet.x, bullet.y,
@@ -79,11 +75,7 @@ void bullet::move(void)
 			_viBullet->x, _viBullet->y);
 		if (_viBullet->_range < distance)
 		{
-<<<<<<< HEAD
-
-=======
 			
->>>>>>> origin/master
 			_viBullet = _vBullet.erase(_viBullet);
 		}
 		else
@@ -141,32 +133,7 @@ void missile::update(void)
 	move();
 }
 
-<<<<<<< HEAD
 void missile::fire(float x, float y, int bulletKind, float range, int damage, int bulletSpeed)
-=======
-void missile::render(void)
-{
-	_viBullet = _vBullet.begin();
-	for (_viBullet; _viBullet != _vBullet.end(); ++_viBullet)
-	{
-		if (!_viBullet->fire) continue;
-		_viBullet->bulletImage->frameRender(getMemDC(), _viBullet->rc.left, _viBullet->rc.top);
-	
-		_viBullet->count++;
-		if (_viBullet->count % 3 == 0)
-		{
-			_viBullet->bulletImage->setFrameX(_viBullet->bulletImage->getFrameX() + 1);
-			if (_viBullet->bulletImage->getFrameX() >= _viBullet->bulletImage->getMaxFrameX())
-			{
-				_viBullet->bulletImage->setFrameX(0);
-			}
-			_viBullet->count = 0;
-		}
-	}
-}
-
-void missile::fire(float x, float y)
->>>>>>> origin/master
 {
 	_viBullet = _vBullet.begin();
 	for (_viBullet; _viBullet != _vBullet.end(); ++_viBullet)
@@ -179,9 +146,9 @@ void missile::fire(float x, float y)
 		_viBullet->fire = true;
 		_viBullet->x = _viBullet->fireX = x;
 		_viBullet->y = _viBullet->fireY = y;
-		_viBullet->count = 0;
+		_viBullet->count = 0; 
 		_viBullet->rc = RectMakeCenter(_viBullet->fireX, _viBullet->fireY,
-			_viBullet->bulletImage->getWidth(), _viBullet->bulletImage->getHeight());
+			_viBullet->bulletImage->getWidth(),_viBullet->bulletImage->getHeight());
 		break;
 	}
 }
@@ -221,7 +188,7 @@ void missile::move(void)
 			_viBullet->x = _viBullet->fireX;
 			_viBullet->y = _viBullet->fireY - _viBullet->_range / 2;
 			_viBullet->rc = RectMakeCenter(_viBullet->x, _viBullet->y,
-				_viBullet->bulletImage->getHeight(), _viBullet->_range);
+				_viBullet->bulletImage->getHeight(),_viBullet->_range);
 			_viBullet->count++;
 			if (_viBullet->count>50)
 			{
@@ -240,10 +207,10 @@ void missile::move(void)
 				_viBullet->fire = false;
 			}
 		}
-
+			
+		}
+	
 	}
-
-}
 
 
 void missile::render(void)
@@ -252,9 +219,9 @@ void missile::render(void)
 	for (_viBullet; _viBullet != _vBullet.end(); ++_viBullet)
 	{
 		if (!_viBullet->fire) continue;
-		//	_viBullet->bulletImage->render(getMemDC(), _viBullet->rc.left,
-		//		_viBullet->rc.top,0,0, _viBullet->rc.right- _viBullet->rc.left, _viBullet->rc.bottom- _viBullet->rc.top);
-		Rectangle(getMemDC(), _viBullet->rc.left, _viBullet->rc.top, _viBullet->rc.right, _viBullet->rc.bottom);
+	//	_viBullet->bulletImage->render(getMemDC(), _viBullet->rc.left,
+	//		_viBullet->rc.top,0,0, _viBullet->rc.right- _viBullet->rc.left, _viBullet->rc.bottom- _viBullet->rc.top);
+		Rectangle(getMemDC(), _viBullet->rc.left, _viBullet->rc.top, _viBullet->rc.right,_viBullet->rc.bottom);
 	}
 }
 

@@ -1,6 +1,2 @@
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v140:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=8.1
-<<<<<<< HEAD
-Debug|x64|C:\Users\jo\Documents\Visual 소스코드(수업)\IssaceTeam\|
-=======
-Debug|x64|C:\Users\진호조\Desktop\지빠귀\IssaceTeam\|
->>>>>>> origin/master
+Debug|x64|C:\Users\jo\Documents\아이작\IssaceTeam-master\|
