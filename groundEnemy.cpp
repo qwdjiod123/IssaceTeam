@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "groundEnemy.h"
 #include"cPlayer.h"
-#include"cItemManager.h"
 
 groundEnemy::groundEnemy()
 {
@@ -17,7 +16,7 @@ HRESULT groundEnemy::init(void)
 	return S_OK;
 }
 
-HRESULT groundEnemy::init(char * V_ImgName, char * H_ImaName,int x,int y, float moveSpeed, cPlayer* player, cItemManager* im)
+HRESULT groundEnemy::init(char * V_ImgName, char * H_ImaName,int x,int y, float moveSpeed, cPlayer* player)
 {
 	_v_img = IMAGEMANAGER->findImage(V_ImgName);
 	_h_img = IMAGEMANAGER->findImage(H_ImaName);
@@ -27,7 +26,6 @@ HRESULT groundEnemy::init(char * V_ImgName, char * H_ImaName,int x,int y, float 
 	_moveSpeed = moveSpeed;
 	_attackCount = 0;
 	_player = player;
-	_im = im;
 	isAttack = false;
 	_moveCount = RND->getFromIntTo(10, 30);
 	_move = LEFT;
@@ -152,31 +150,7 @@ void groundEnemy::move()
 	}
 
 
-	//케릭터 몸이랑 몬스터 몸의 충돌
-	RECT temp;
-	if (IntersectRect(&temp, &_player->GetRC(), &_rc))
-	{
-		//몸통박치기 충돌 했을때.
-	}
-
-
-
-	//캐릭터 총알이랑 몬스터 몸체의 충돌
-	RECT colTemp;
-	for (int i = 0; i < _player->getBullet()->getVBulletPt()->size(); i++)
-	{
-		if (IntersectRect(&colTemp, &_rc, &_player->getBullet()->getVBulletPt()->at(i).rc))
-		{
-			_knockBackCount = 5;
-			_knockBackAngle = getAngle(_player->getBullet()->getVBulletPt()->at(i).x, _player->getBullet()->getVBulletPt()->at(i).y, _x, _y);
-			_player->getBullet()->getVBulletPt()->erase(_player->getBullet()->getVBulletPt()->begin() + i);
-			_HP--;
-			break;
-		}
-	}
-
-	//적이랑 폭탄 렉트의 충돌
-
+	
 
 }
 

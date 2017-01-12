@@ -6,7 +6,6 @@
 //상호참조용 플레이어 클래스 전방선언
 
 class cPlayer;
-class cItemManager;
 class enemyManager : public gameNode
 {
 private:
@@ -14,7 +13,6 @@ private:
 	vector<enemy*>::iterator _viMinion;
 
 	cPlayer* _player;
-	cItemManager* _im;
 	bullet* _bullet;
 	int _count;
 
@@ -40,9 +38,9 @@ public:
 
 	//미니언 벡터 가져오기
 	vector<enemy*> getVMinion() { return _vMinion; }
+	vector<enemy*>* getVMinionPt() { return &_vMinion; }
 
 	void setPlayer(cPlayer* player) { _player = player; }
-	void setPlayer(cItemManager* im) { _im = im; }
 
 	//상호참조시 플레이어포인터를 넘길 셋터함수
 	

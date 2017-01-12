@@ -24,20 +24,26 @@ public:
 	virtual void update(void);
 	virtual void render(void);
 
-	virtual void setSpeed(float speed) { }
-	virtual float getSpeed() { return 0; }
-
-	virtual void setHP(float HP) { }
-	virtual float getHP() { return 0; }
-
-
 	virtual void move();			//업데이트에 넣기
 	virtual void draw();			//렌더 안에 넣기
 	virtual void animation();		//업데이트에 넣기
 
-	bool bulletCountFire(void);
+	virtual void setSpeed(float speed) {}
+	virtual float getSpeed() { return 0.0f; }
 
-	RECT getRect() { return _rc; }
+	virtual void setHP(float HP) {}
+	virtual float getHP() { return 0; }
+
+	virtual void setknockBackCount(int count){}
+	virtual void setknockBackAngle(float angle) {}
+
+	virtual float getX() { return 0; }
+	virtual float getY() { return 0; }
+	
+
+	virtual bool bulletCountFire(void) { return false; }
+
+	virtual RECT getRect() { return _rc; }
 
 	enemy() {}
 	virtual ~enemy() {}

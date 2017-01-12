@@ -24,6 +24,8 @@ HRESULT gameNode::init(bool managerInit)
 		TXTDATA->init();					//텍스트데이터 초기화
 		SCENEMANAGER->init();				//씬매니져 초기화
 		INIDATA->init();					//INI데이터 초기화
+		EFFECTMANAGER->init();
+		SOUNDMANAGER->init();
 	}
 
 	return S_OK;
@@ -55,6 +57,11 @@ void gameNode::release(void)
 		SCENEMANAGER->release();
 		SCENEMANAGER->releaseSingleton();
 		
+		EFFECTMANAGER->release();
+		EFFECTMANAGER->releaseSingleton();
+		SOUNDMANAGER->release();
+		SOUNDMANAGER->releaseSingleton();
+
 	}
 
 	//DC 해제

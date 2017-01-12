@@ -20,6 +20,8 @@ HRESULT enemy::init(char * imageName, POINT position)
 	_fireCount = 0;
 	_rndFireCount = RND->getFromIntTo(1, 1000);
 
+	
+
 	return S_OK;
 }
 
@@ -61,17 +63,4 @@ void enemy::animation()
 			_count = 0;
 		}
 	}
-}
-
-bool enemy::bulletCountFire(void)
-{
-	_fireCount++;
-	if (_fireCount % _rndFireCount == 0)
-	{
-		_rndFireCount = RND->getFromIntTo(1, 1000);
-		_fireCount = 0;
-		return true;
-	}
-
-	return false;
 }

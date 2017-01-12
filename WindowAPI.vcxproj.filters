@@ -164,6 +164,12 @@
     <ClInclude Include="shootEnemy.h">
       <Filter>MainGame\아이작\enemy</Filter>
     </ClInclude>
+    <ClInclude Include="effectManager.h">
+      <Filter>GameFramework2D\매니져</Filter>
+    </ClInclude>
+    <ClInclude Include="soundManager.h">
+      <Filter>GameFramework2D\매니져</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mainGame.cpp">
@@ -249,6 +255,12 @@
     </ClCompile>
     <ClCompile Include="shootEnemy.cpp">
       <Filter>MainGame\아이작\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="effectManager.cpp">
+      <Filter>GameFramework2D\매니져</Filter>
+    </ClCompile>
+    <ClCompile Include="soundManager.cpp">
+      <Filter>GameFramework2D\매니져</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

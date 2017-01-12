@@ -12,7 +12,7 @@ HRESULT fly::init(string imageName, int x, int y, cPlayer * player)
 	_img = IMAGEMANAGER->findImage(imageName);
 	_x = x;
 	_y = y;
-	_rc = RectMakeCenter(_x, _y, _img->getFrameWidth(), _img->getFrameHeight());
+	_rc = RectMakeCenter(_x, _y, _img->getWidth(), _img->getHeight());
 	_player = player;
 	_angle = 0;
 	_moveSpeed = 0;
@@ -68,7 +68,7 @@ void fly::move()
 	{
 		_isMove = true;
 	}
-	_rc = RectMakeCenter(_x, _y, _img->getFrameWidth(), _img->getFrameHeight());
+	_rc = RectMakeCenter(_x, _y, _img->getWidth(), _img->getHeight());
 }
 
 void fly::draw()
@@ -88,25 +88,4 @@ void fly::animation()
 	}
 }
 
-void fly::collision()
-{
-	RECT temp;
-	if (IntersectRect(&temp, &_rc, &_player->GetRC()))//몸통박치기 당한경우 
-	{
 
-	}
-
-	RECT colTemp;
-	for (int i = 0; i < _player->getBullet()->getVBulletPt()->size(); i++)
-	{
-		if (IntersectRect(&colTemp, &_rc, &_player->getBullet()->getVBulletPt()->at(i).rc))
-		{
-			_knockBackCount = 5;
-			_knockBackAngle = getAngle(_player->getBullet()->getVBulletPt()->at(i).x, _player->getBullet()->getVBulletPt()->at(i).y, _x, _y);
-			_player->getBullet()->getVBulletPt()->erase(_player->getBullet()->getVBulletPt()->begin() + i);
-			_HP--;//겟 데미지로 수정 필수
-			break;
-		}
-	}
-
-}

@@ -39,6 +39,8 @@ using namespace MY_UTIL;
 #include "txtData.h"
 #include "iniData.h"
 #include "sceneManager.h"
+#include"effectManager.h"
+#include"soundManager.h"
 
 
 
@@ -52,6 +54,8 @@ using namespace MY_UTIL;
 #define TXTDATA	txtData::getSingleton()
 #define SCENEMANAGER sceneManager::getSingleton()
 #define INIDATA iniData::getSingleton()
+#define EFFECTMANAGER effectManager::getSingleton()
+#define SOUNDMANAGER soundManager::getSingleton()
 
 //====================================================================
 //			## 디파인문 - 메크로 ## (윈도우창 초기화)

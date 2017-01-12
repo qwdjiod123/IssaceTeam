@@ -44,10 +44,15 @@ public:
 	virtual float getHP() { return _HP; }
 
 
-	float getX() { return _x; }
-	float getY() { return _y; }
+	virtual void setknockBackCount(int count) { _knockBackCount = count; }
+	virtual void setknockBackAngle(float angle) { _knockBackAngle = angle; }
 
-	void collision();
+	virtual float getX() { return _x; }
+	virtual float getY() { return _y; }
+
+
+	virtual RECT getRect() { return _rc; }
+
 
 	void damage(int dmg) { _HP -= dmg; }
 
