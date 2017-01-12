@@ -7,7 +7,6 @@
 
 HRESULT cSceneManager::init(void)
 {
-
 	currentMap = ¸Ê11;
 	_player->SetX(WINSIZEX / 2);
 	_player->SetY(WINSIZEY / 2);
@@ -41,7 +40,7 @@ void cSceneManager::update(void)
 		{
 			if (IntersectRect(&temp, &_player->GetRC(), &store))
 			{
-				_im->ItemMake(WINSIZEX/2, WINSIZEY/2, ÆøÅº, ¸Ê11);
+				_im->ItemMake(WINSIZEX/2, WINSIZEY/2, ÆøÅº, ¸Ê11,true);
 			}
 		}
 		
@@ -52,17 +51,21 @@ void cSceneManager::update(void)
 	if (currentMap == ¸Ê11&&ItemSetting[¸Ê11] == false)
 	{
 		_im->ItemMapSet(200, 400, ÆøÅº, ¸Ê11);
-		_im->ItemMapSet(400, 400, µ¿Àü1, ¸Ê11);
+		_im->ItemMapSet(400, 400, »¡°£ÇÏÆ®, ¸Ê11);
 		_im->ItemMapSet(600, 400, µ¿Àü99, ¸Ê11);	
 		_im->ItemMapSet(200, 200, À¯È², ¸Ê11);
+		_im->ItemMapSet(400, 200, ¸ð·¡½Ã°è, ¸Ê11);
+		_im->ItemMapSet(600, 200, ¹Ú»çÀÇÁ¶Á¤±â, ¸Ê11);
 		ItemSetting[¸Ê11] = true;
 	}
 
 	if (currentMap == ¸Ê12&&ItemSetting[¸Ê12] == false)
 	{
 		_im->ItemMapSet(100, 100, ¿­¼è, ¸Ê12);
-		_im->ItemMapSet(300, 100, ¿­¼è, ¸Ê12);
-		_im->ItemMapSet(500, 100, ¿­¼è, ¸Ê12);
+		_im->ItemMapSet(300, 100, ±¸··ÅÖÀÌÀÇ±ºÁÖ, ¸Ê12);
+		_im->ItemMapSet(500, 100, º¸¹°»óÀÚ, ¸Ê12);
+		_im->ItemMapSet(100, 300, ¾Ë¾à, ¸Ê12);
+		_im->ItemMapSet(100, 500, ¿­¼è, ¸Ê12);
 		ItemSetting[¸Ê12] = true;
 	}
 

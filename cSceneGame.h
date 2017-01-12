@@ -5,6 +5,8 @@
 #include "cSceneManager.h"
 #include"enemyManager.h"
 
+//이게 제일최신버젼임
+
 class cSceneGame :public gameNode
 {
 
