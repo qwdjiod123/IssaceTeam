@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿cl : 명령줄 warning D9028: 최소 다시 빌드에 실패했습니다. 정상 빌드로 되돌립니다.
   stdafx.cpp
   winMain.cpp
@@ -171,3 +172,31 @@ c:\users\jo\documents\visual 소스코드(수업)\issaceteam\bullet.cpp(300): wa
   LINK : C:\Users\jo\Documents\Visual 소스코드(수업)\IssaceTeam\x64\Debug\WindowAPI.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
   WindowAPI.vcxproj -> C:\Users\jo\Documents\Visual 소스코드(수업)\IssaceTeam\x64\Debug\WindowAPI.exe
   WindowAPI.vcxproj -> C:\Users\jo\Documents\Visual 소스코드(수업)\IssaceTeam\x64\Debug\WindowAPI.pdb (Full PDB)
+=======
+﻿  groundEnemy.cpp
+c:\users\진호조\desktop\지빠귀\issaceteam\groundenemy.h(49): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\진호조\desktop\지빠귀\issaceteam\groundenemy.h(50): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\진호조\desktop\지빠귀\issaceteam\groundenemy.cpp(24): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\진호조\desktop\지빠귀\issaceteam\groundenemy.cpp(25): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\진호조\desktop\지빠귀\issaceteam\groundenemy.cpp(26): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\진호조\desktop\지빠귀\issaceteam\groundenemy.cpp(87): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\진호조\desktop\지빠귀\issaceteam\groundenemy.cpp(91): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  enemyManager.cpp
+c:\users\진호조\desktop\지빠귀\issaceteam\groundenemy.h(49): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\진호조\desktop\지빠귀\issaceteam\groundenemy.h(50): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  winMain.cpp
+c:\users\진호조\desktop\지빠귀\issaceteam\groundenemy.h(49): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\진호조\desktop\지빠귀\issaceteam\groundenemy.h(50): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\진호조\desktop\지빠귀\issaceteam\winmain.cpp(119): warning C4244: 'return': 'WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  mainGame.cpp
+c:\users\진호조\desktop\지빠귀\issaceteam\groundenemy.h(49): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\진호조\desktop\지빠귀\issaceteam\groundenemy.h(50): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  cSceneGame.cpp
+c:\users\진호조\desktop\지빠귀\issaceteam\groundenemy.h(49): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\진호조\desktop\지빠귀\issaceteam\groundenemy.h(50): warning C4244: 'return': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  WindowAPI.vcxproj -> C:\Users\진호조\Desktop\지빠귀\IssaceTeam\x64\Debug\WindowAPI.exe
+  WindowAPI.vcxproj -> C:\Users\진호조\Desktop\지빠귀\IssaceTeam\x64\Debug\WindowAPI.pdb (Full PDB)
+>>>>>>> origin/master

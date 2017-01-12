@@ -158,6 +158,12 @@
     <ClInclude Include="cSceneManager.h">
       <Filter>MainGame\아이작\맵매니져</Filter>
     </ClInclude>
+    <ClInclude Include="fly.h">
+      <Filter>MainGame\아이작\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="shootEnemy.h">
+      <Filter>MainGame\아이작\enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mainGame.cpp">
@@ -237,6 +243,12 @@
     </ClCompile>
     <ClCompile Include="cSceneManager.cpp">
       <Filter>MainGame\아이작\맵매니져</Filter>
+    </ClCompile>
+    <ClCompile Include="fly.cpp">
+      <Filter>MainGame\아이작\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="shootEnemy.cpp">
+      <Filter>MainGame\아이작\enemy</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

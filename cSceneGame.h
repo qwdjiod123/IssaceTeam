@@ -3,7 +3,7 @@
 #include "cPlayer.h"
 #include"cItemManager.h"
 #include "cSceneManager.h"
-
+#include"enemyManager.h"
 
 class cSceneGame :public gameNode
 {
@@ -13,6 +13,7 @@ private:
 	cPlayer* _player;
 	cItemManager* _im;
 	cSceneManager* _sm;
+	enemyManager* _enemy;
 
 public:		
 	HRESULT init(void);

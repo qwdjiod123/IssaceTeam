@@ -32,7 +32,7 @@ void bullet::render(void)
 	}
 }
 
-void bullet::fire(float x, float y, float angle, float range, int damage, int bulletSpeed)
+void bullet::fire(float x, float y, float angle,float range, int damage, int bulletSpeed)
 {
 	//총알 벡터에 담는것을 제한한다
 	if (_bulletMax < _vBullet.size() + 1) return;
@@ -47,7 +47,11 @@ void bullet::fire(float x, float y, float angle, float range, int damage, int bu
 	bullet.bulletImage = IMAGEMANAGER->findImage(_imageName);
 	bullet.speed = bulletSpeed;
 	bullet.angle = angle;
+<<<<<<< HEAD
 	//	bullet.gravity = gravity;
+=======
+//	bullet.gravity = gravity;
+>>>>>>> origin/master
 	bullet.x = bullet.fireX = x;
 	bullet.y = bullet.fireY = y;
 	bullet.rc = RectMakeCenter(bullet.x, bullet.y,
@@ -63,7 +67,7 @@ void bullet::move(void)
 	_viBullet = _vBullet.begin();
 	for (; _viBullet != _vBullet.end();)
 	{
-		_viBullet->x += cosf(_viBullet->angle) * _viBullet->speed;
+		_viBullet->x += cosf(_viBullet->angle) * _viBullet->speed ;
 		_viBullet->y += -sinf(_viBullet->angle) * _viBullet->speed;
 
 		_viBullet->rc = RectMakeCenter(_viBullet->x, _viBullet->y,
@@ -75,7 +79,11 @@ void bullet::move(void)
 			_viBullet->x, _viBullet->y);
 		if (_viBullet->_range < distance)
 		{
+<<<<<<< HEAD
 
+=======
+			
+>>>>>>> origin/master
 			_viBullet = _vBullet.erase(_viBullet);
 		}
 		else
@@ -133,7 +141,32 @@ void missile::update(void)
 	move();
 }
 
+<<<<<<< HEAD
 void missile::fire(float x, float y, int bulletKind, float range, int damage, int bulletSpeed)
+=======
+void missile::render(void)
+{
+	_viBullet = _vBullet.begin();
+	for (_viBullet; _viBullet != _vBullet.end(); ++_viBullet)
+	{
+		if (!_viBullet->fire) continue;
+		_viBullet->bulletImage->frameRender(getMemDC(), _viBullet->rc.left, _viBullet->rc.top);
+	
+		_viBullet->count++;
+		if (_viBullet->count % 3 == 0)
+		{
+			_viBullet->bulletImage->setFrameX(_viBullet->bulletImage->getFrameX() + 1);
+			if (_viBullet->bulletImage->getFrameX() >= _viBullet->bulletImage->getMaxFrameX())
+			{
+				_viBullet->bulletImage->setFrameX(0);
+			}
+			_viBullet->count = 0;
+		}
+	}
+}
+
+void missile::fire(float x, float y)
+>>>>>>> origin/master
 {
 	_viBullet = _vBullet.begin();
 	for (_viBullet; _viBullet != _vBullet.end(); ++_viBullet)

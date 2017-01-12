@@ -61,6 +61,7 @@ void loadingScene::loadingImage(void)
 	_loading->loadImage("map3", "map3.bmp", WINSIZEX, WINSIZEY);
 	_loading->loadImage("폭탄", "bomb.bmp", 50, 50);
 	_loading->loadImage("열쇠", "key.bmp", 50, 50);
+<<<<<<< HEAD
 	//플레이어 이미지 
 	_loading->loadImage("아이작왼쪽얼굴", "아이작LEFT.bmp", PLAYERHEADSIZEX, PLAYERHEADSIZEY, true, RGB(255, 0, 255));
 	_loading->loadImage("아이작오른쪽얼굴", "아이작옆.bmp", PLAYERHEADSIZEX, PLAYERHEADSIZEY, true, RGB(255, 0, 255));
@@ -84,6 +85,21 @@ void loadingScene::loadingImage(void)
 	//몬스터에 대한 이미지
 	_loading->loadImage("worm_V", "wormTest_V.bmp", 20, 21, true, RGB(255, 0, 255));
 	_loading->loadImage("worm_H", "wormTest_H.bmp", 30, 13, true, RGB(255, 0, 255));
+=======
+	_loading->loadImage("아이작왼쪽얼굴", "아이작LEFT.bmp", 28*3, 25*3, true, RGB(255, 0, 255));
+	_loading->loadImage("아이작오른쪽얼굴", "아이작옆.bmp", 28*3, 25 * 3, true, RGB(255, 0, 255));
+	_loading->loadImage("아이작IDLE", "아이작IDLE.bmp", 28 * 3, 25 * 3, true, RGB(255, 0, 255));
+	_loading->loadImage("아이작뒷통수", "아이작뒷통수.bmp", 28 * 3, 25 * 3, true, RGB(255, 0, 255));
+	_loading->loadImage("아이작몸통", "몸통.bmp", 18 * 3, 15 * 3, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("아이작왼쪽몸통", "WALKLEFT.bmp", 180 * 3, 15 * 3, 10, 1, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("아이작오른쪽몸통", "아이작RIGHT.bmp", 180 * 3, 15 * 3, 10,1,true, RGB(255, 0, 255));
+	_loading->loadFrameImage("아이작UPDOWN", "아이작UPDOWN.bmp", 180 * 3, 15 * 3, 10, 1, true, RGB(255, 0, 255));
+	_loading->loadImage("기본총알", "기본총알.bmp", 26, 26, true, RGB(255, 0, 255));
+
+	//몬스터에 대한 이미지
+	_loading->loadImage("worm_V", "wormTest_V.bmp", 20, 21, true, RGB(255, 0, 255));
+	_loading->loadImage("worm_H", "wormTest_H.bmp", 30, 13, true, RGB(255, 0, 255));		
+>>>>>>> origin/master
 
 }
 //로딩사운드 함수(이곳에 사운드를 전부 넣어라)
