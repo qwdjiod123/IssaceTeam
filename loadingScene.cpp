@@ -82,8 +82,44 @@ void loadingScene::loadingImage(void)
 	//총알이미지 
 	_loading->loadImage("기본총알", "기본총알.bmp", 26, 26, true, RGB(255, 0, 255));
 	//몬스터에 대한 이미지
-	_loading->loadImage("worm_V", "wormTest_V.bmp", 20, 21, true, RGB(255, 0, 255));
-	_loading->loadImage("worm_H", "wormTest_H.bmp", 30, 13, true, RGB(255, 0, 255));		
+
+
+	_loading->loadFrameImage("wormH", "wormH.bmp", 504, 40, 12, 2, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("wormD", "wormD.bmp", 600, 28, 24, 1, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("wormDA", "wormDA.bmp", 27, 30, 1, 1, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("wormHA", "wormHA.bmp", 39, 62, 1, 2, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("wormU", "wormU.bmp", 27, 31, 1, 1, true, RGB(255, 0, 255));
+
+	_loading->loadFrameImage("wormHR", "wormHR.bmp", 504, 40, 12, 2, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("wormDR", "wormDR.bmp", 600, 28, 24, 1, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("wormDAR", "wormDAR.bmp", 27, 30, 1, 1, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("wormHAR", "wormHAR.bmp", 39, 62, 1, 2, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("wormUR", "wormUR.bmp", 27, 31, 1, 1, true, RGB(255, 0, 255));
+
+
+	_loading->loadImage("shootEnemy", "shootEnemy.bmp", 41, 36, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("shootEnemyAnime", "shootEnemyAnime.bmp", 368, 45, 8, 1, true, RGB(255, 0, 255));
+	_loading->loadImage("shootEnemyR", "shootEnemyR.bmp", 41, 36, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("shootEnemyAnimeR", "shootEnemyAnimeR.bmp", 368, 45, 8, 1, true, RGB(255, 0, 255));
+
+	_loading->loadFrameImage("fly", "fly.bmp", 84, 21, 4, 1, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("flyR", "flyR.bmp", 84, 21, 4, 1, true, RGB(255, 0, 255));
+
+	_loading->loadFrameImage("enemyBullet", "enemyBullet.bmp", 45, 15, 3, 1, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("bulletEffect", "bulletEffect.bmp", 444, 74, 6, 1, true, RGB(255, 0, 255));
+
+	_loading->loadFrameImage("monstroAll", "monstroAll.bmp", 228, 104, 2, 1, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("monstroJumpMotion", "monstroJumpMotion.bmp", 816, 122, 6, 1, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("monstroShootAnime", "monstroShootAnime.bmp", 408, 97, 3, 1, true, RGB(255, 0, 255));
+
+	_loading->loadFrameImage("monstroAllR", "monstroAllR.bmp", 228, 104, 2, 1, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("monstroJumpMotionR", "monstroJumpMotionR.bmp", 816, 122, 6, 1, true, RGB(255, 0, 255));
+	_loading->loadFrameImage("monstroShootAnimeR", "monstroShootAnimeR.bmp", 408, 97, 3, 1, true, RGB(255, 0, 255));
+
+
+	_loading->loadImage("emptyHP", "emptyHP.bmp", 309, 33, true, RGB(255, 0, 255));
+	_loading->loadImage("HP", "HP.bmp", 276, 18, true, RGB(255, 0, 255));
+
 
 }
 //로딩사운드 함수(이곳에 사운드를 전부 넣어라)

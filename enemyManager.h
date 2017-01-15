@@ -3,6 +3,9 @@
 #include "minion.h"
 #include "bullet.h"
 #include"groundEnemy.h"
+#include"fly.h"
+#include"shootEnemy.h"
+#include"monstro.h"
 //상호참조용 플레이어 클래스 전방선언
 
 class cPlayer;
@@ -13,7 +16,8 @@ private:
 	vector<enemy*>::iterator _viMinion;
 
 	cPlayer* _player;
-	bullet* _bullet;
+	frameBullet* _bullet;
+	hoppingBullet* _hBullet;
 	int _count;
 
 		//동적할당 하면 안된다!!!
@@ -40,7 +44,13 @@ public:
 	vector<enemy*> getVMinion() { return _vMinion; }
 	vector<enemy*>* getVMinionPt() { return &_vMinion; }
 
+	frameBullet* getFrameBullet() { return _bullet; }
+	hoppingBullet* getHFrameBullet() { return _hBullet; }
+
 	void setPlayer(cPlayer* player) { _player = player; }
+
+	void addEnemy(string KEY,float centerX,float centerY);
+
 
 	//상호참조시 플레이어포인터를 넘길 셋터함수
 	

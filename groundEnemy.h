@@ -17,8 +17,11 @@ class groundEnemy :
 {
 private:
 	RECT _rc;
-	image* _v_img;
-	image* _h_img;
+	
+	image* _img;
+	int _currentFrameX;
+	int _currentFrameY;
+	int time;
 	float _x;						//중심 x
 	float _y;						//중심 Y
 	float _moveSpeed;				//움직임 속도
@@ -30,10 +33,11 @@ private:
 	int _moveCount;					//움직임의 변화를 주는변수
 	float _knockBackAngle;			//넉백 각도
 	int _knockBackCount;			//넉백 타이머
+	int _hitTime;
 public:
 
 	virtual HRESULT init(void);
-	HRESULT init(char* V_ImgName, char* H_ImaName, int x, int y,float moveSpeed,cPlayer* player);
+	HRESULT init( int x, int y,cPlayer* player);
 	virtual void release(void);
 	virtual void update(void);
 	virtual void render(void);
@@ -56,6 +60,10 @@ public:
 	virtual float getY() { return _y; }
 
 	virtual RECT getRect() { return _rc; }
+
+	virtual int getMobType() { return WORM; }
+
+	virtual void setHitTime(int count) { _hitTime = count; }
 
 	void damage(int dmg) { _HP -= dmg; }
 

@@ -20,6 +20,10 @@ class fly :
 	int _currentFrameX;
 	int _currentFrameY;
 
+	int _hitTime;
+
+	int rendercount;
+
 	bool _isMove;
 	float _knockBackAngle;			//≥ÀπÈ ∞¢µµ
 	int _knockBackCount;			//≥ÀπÈ ≈∏¿Ã∏”
@@ -53,6 +57,9 @@ public:
 
 	virtual RECT getRect() { return _rc; }
 
+	virtual int getMobType() { return FLY; }
+
+	virtual void setHitTime(int count) { _hitTime = count; }
 
 	void damage(int dmg) { _HP -= dmg; }
 

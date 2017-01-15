@@ -2,6 +2,15 @@
 #include "gameNode.h"
 
 //부모클래스 => 이놈을 상속받아서 보스, 일반몬스터등을 만든다
+
+enum mobType
+{
+	FLY,
+	SHOOTER,
+	WORM,
+	BOSS
+};
+
 class enemy : public gameNode
 {
 private:
@@ -40,10 +49,17 @@ public:
 	virtual float getX() { return 0; }
 	virtual float getY() { return 0; }
 	
+	virtual int getMobType() { return -1; }
 
 	virtual bool bulletCountFire(void) { return false; }
 
+	virtual void setShootCount(int count) {}
+
+	virtual void setHitTime(int count) {}
+
 	virtual RECT getRect() { return _rc; }
+	
+	virtual bool isHit() { return true; }
 
 	enemy() {}
 	virtual ~enemy() {}

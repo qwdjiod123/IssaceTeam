@@ -225,6 +225,242 @@ void missile::render(void)
 	}
 }
 
+
+//=============================================================
+//	## FrameBullet ## (프레임 이미지가 있는 총알을 쓸때 사용하는 클래스)
+//=============================================================
+
+
+HRESULT frameBullet::init(char * imageName, int bulletMax)
+{
+	//총알 이미지 초기화
+	_imageName = imageName;
+	//총알갯수 및 총알사거리 초기화
+	_bulletMax = bulletMax;
+
+	_time = 0;
+	return S_OK;
+}
+
+
+
+void frameBullet::release(void)
+{
+}
+
+void frameBullet::update(void)
+{
+	move();
+}
+
+void frameBullet::render(void)
+{
+	_viBullet = _vBullet.begin();
+	for (_viBullet; _viBullet != _vBullet.end(); ++_viBullet)
+	{
+		if (KEYMANAGER->isToggleKey(VK_F1))
+		{
+			RectangleMake(getMemDC(), _viBullet->rc);
+		}
+		_viBullet->bulletImage->frameRender(getMemDC(), _viBullet->rc.left, _viBullet->rc.top, _viBullet->bulletImage->getFrameX(), _viBullet->bulletImage->getFrameY());
+	}
+}
+
+void frameBullet::fire(float x, float y, float angle, float range, int damage, int bulletSpeed)
+{
+	//총알 벡터에 담는것을 제한한다
+	if (_bulletMax < _vBullet.size() + 1) return;
+
+	tagBullet bullet;
+
+	//제로메모리 모르면 사용안해도 무방함
+	//구조체의 변수들을 한번에 0으로 초기화 시켜준다
+	ZeroMemory(&bullet, sizeof(tagBullet));
+	bullet._range = range;
+	bullet.damage = damage;
+	bullet.bulletImage = IMAGEMANAGER->findImage(_imageName);
+	bullet.speed = bulletSpeed;
+	bullet.angle = angle;
+	//	bullet.gravity = gravity;
+	bullet.x = bullet.fireX = x;
+	bullet.y = bullet.fireY = y;
+	bullet.rc = RectMakeCenter(bullet.x, bullet.y,
+		bullet.bulletImage->getFrameWidth(),
+		bullet.bulletImage->getFrameHeight());
+
+	//벡터에 담기
+	_vBullet.push_back(bullet);
+}
+
+void frameBullet::move(void)
+{
+	_viBullet = _vBullet.begin();
+	for (; _viBullet != _vBullet.end();)
+	{
+		_viBullet->x += cosf(_viBullet->angle) * _viBullet->speed;
+		_viBullet->y += -sinf(_viBullet->angle) * _viBullet->speed;
+
+		_viBullet->rc = RectMakeCenter(_viBullet->x, _viBullet->y,
+			_viBullet->bulletImage->getFrameWidth(),
+			_viBullet->bulletImage->getFrameHeight());
+		if (_time % 2 == 0)
+		{
+			if (_viBullet->bulletImage->getFrameX() < _viBullet->bulletImage->getMaxFrameX())
+			{
+				_viBullet->bulletImage->setFrameX(_viBullet->bulletImage->getFrameX() + 1);
+			}
+			else
+			{
+				_viBullet->bulletImage->setFrameX(0);
+			}
+		}
+
+
+		//총알이 사거리보다 커졌을때
+		float distance = getDistance(_viBullet->fireX, _viBullet->fireY,
+			_viBullet->x, _viBullet->y);
+		if (_viBullet->_range < distance)
+		{
+			EFFECTMANAGER->addEffect("bulletEffect", _viBullet->x, _viBullet->y);
+			_viBullet = _vBullet.erase(_viBullet);
+
+		}
+		else
+		{
+			++_viBullet;
+		}
+	}
+	_time;
+}
+
+void frameBullet::removeBullet(int index)
+{
+	EFFECTMANAGER->addEffect("bulletEffect", _vBullet[index].x, _vBullet[index].y);
+	_vBullet.erase(_vBullet.begin() + index);
+}
+
+
+//=============================================================
+//	## hoppingBullet ## (곡사총알)
+//=============================================================
+
+
+HRESULT hoppingBullet::init(char * imageName, int bulletMax)
+{
+	//총알 이미지 초기화
+	_imageName = imageName;
+	//총알갯수 및 총알사거리 초기화
+	_bulletMax = bulletMax;
+	_time = 0;
+	return S_OK;
+}
+
+
+
+void hoppingBullet::release(void)
+{
+}
+
+void hoppingBullet::update(void)
+{
+	move();
+}
+
+void hoppingBullet::render(void)
+{
+	_viBullet = _vBullet.begin();
+	for (_viBullet; _viBullet != _vBullet.end(); ++_viBullet)
+	{
+		_viBullet->bulletImage->frameRender(getMemDC(), _viBullet->rc.left, _viBullet->rc.top, _viBullet->bulletImage->getFrameX(), _viBullet->bulletImage->getFrameY());
+	}
+}
+
+void hoppingBullet::fire(float x, float y, float angle, float jumpPower, int damage, int bulletSpeed)
+{
+	//총알 벡터에 담는것을 제한한다
+	if (_bulletMax < _vBullet.size() + 1) return;
+
+	tagHBullet bullet;
+
+	//제로메모리 모르면 사용안해도 무방함
+	//구조체의 변수들을 한번에 0으로 초기화 시켜준다
+	ZeroMemory(&bullet, sizeof(tagHBullet));
+
+	bullet._jumpPower = jumpPower;
+	bullet.damage = damage;
+	bullet.bulletImage = IMAGEMANAGER->findImage(_imageName);
+	bullet.speed = bulletSpeed;
+	bullet.angle = angle;
+	//	bullet.gravity = gravity;
+	bullet.x = bullet.fireX = x;
+	bullet.y = bullet.fireY = y;
+	bullet.rc = RectMakeCenter(bullet.x, bullet.y,
+		bullet.bulletImage->getFrameWidth(),
+		bullet.bulletImage->getFrameHeight());
+
+	//벡터에 담기
+	_vBullet.push_back(bullet);
+}
+
+void hoppingBullet::move(void)
+{
+	_viBullet = _vBullet.begin();
+	for (; _viBullet != _vBullet.end();)
+	{
+		_viBullet->x += cosf(_viBullet->angle) * _viBullet->speed;
+		_viBullet->y += -sinf(_viBullet->angle) * _viBullet->speed;
+
+		_viBullet->gravity += 0.3f;
+		_viBullet->_height += _viBullet->gravity - _viBullet->_jumpPower;
+
+		_viBullet->rc = RectMakeCenter(_viBullet->x, _viBullet->y + _viBullet->_height,
+			_viBullet->bulletImage->getFrameWidth(),
+			_viBullet->bulletImage->getFrameHeight());
+
+		if (_time % 2 == 0)
+		{
+			if (_viBullet->bulletImage->getFrameX() < _viBullet->bulletImage->getMaxFrameX())
+			{
+				_viBullet->bulletImage->setFrameX(_viBullet->bulletImage->getFrameX() + 1);
+			}
+			else
+			{
+				_viBullet->bulletImage->setFrameX(0);
+			}
+		}
+
+
+		//총알이 사거리보다 커졌을때
+
+		if (_viBullet->_height>10)
+		{
+			EFFECTMANAGER->addEffect("bulletEffect", _viBullet->x, _viBullet->y);
+			_viBullet = _vBullet.erase(_viBullet);
+		}
+		else
+		{
+			++_viBullet;
+		}
+	}
+	_time++;
+}
+
+void hoppingBullet::removeBullet(int index)
+{
+	EFFECTMANAGER->addEffect("bulletEffect", _vBullet[index].x, _vBullet[index].y);
+	_vBullet.erase(_vBullet.begin() + index);
+}
+
+
+
+
+
+
+
+
+
+
+
 //=============================================================
 //	## missileM1 ## (한발씩 총알 발사하면서 생성하고 자동삭제)
 //=============================================================

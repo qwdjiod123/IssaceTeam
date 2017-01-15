@@ -40,6 +40,7 @@ void cSceneGame::update(void)
 	_im->update();
 	_sm->update();
 	_enemy->update();
+	EFFECTMANAGER->update();
 }
 
 void cSceneGame::render(void)
@@ -48,5 +49,6 @@ void cSceneGame::render(void)
 	_player->render();
 	_im->render();
 	_enemy->render();
+	EFFECTMANAGER->render(getMemDC());
 }
 

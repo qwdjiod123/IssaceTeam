@@ -14,15 +14,23 @@ void effectManager::update(void)
 {
 	for (int i = 0; i < _vEffect.size(); i++)
 	{
-		if (_vEffect[i]->currentFrameX < _vEffect[i]->maxFrameX)
+		if (_vEffect[i]->time % 3 == 0)
 		{
-			_vEffect[i]->currentFrameX++;
+			if (_vEffect[i]->currentFrameX < _vEffect[i]->maxFrameX)
+			{
+				_vEffect[i]->currentFrameX++;
+			}
+			else
+			{
+				_vEffect.erase(_vEffect.begin() + i);
+				break;
+			}
 		}
 		else
 		{
-			_vEffect.erase(_vEffect.begin() + i);
-			break;
+			(_vEffect[i]->time)++;
 		}
+		
 	}
 }
 
@@ -38,9 +46,10 @@ void effectManager::addEffect(string effectName, float centerX, float centerY)
 {
 	tagEffect* temp = new tagEffect;
 	temp->img = IMAGEMANAGER->findImage(effectName);
-	temp->destX = centerX - (temp->img->getFrameX() / 2);
-	temp->destY = centerY - (temp->img->getFrameY() / 2);
+	temp->destX = centerX - (temp->img->getFrameWidth() / 2);
+	temp->destY = centerY - (temp->img->getFrameHeight() / 2);
 	temp->currentFrameX = 0;
 	temp->maxFrameX = temp->img->getMaxFrameX();
+	temp->time = 0;
 	_vEffect.push_back(temp);
 }

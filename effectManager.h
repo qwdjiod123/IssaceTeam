@@ -8,13 +8,14 @@ struct tagEffect
 	int destY;
 	int currentFrameX;
 	int maxFrameX;
+	int time;
 };
 
 class effectManager :
 	public singletonBase<effectManager>
 {
 	vector<tagEffect*> _vEffect;
-
+	
 
 public:
 

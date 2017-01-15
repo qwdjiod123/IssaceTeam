@@ -162,6 +162,7 @@
     <ClInclude Include="loading.h" />
     <ClInclude Include="loadingScene.h" />
     <ClInclude Include="mainGame.h" />
+    <ClInclude Include="monstro.h" />
     <ClInclude Include="pixelCollision.h" />
     <ClInclude Include="playerData.h" />
     <ClInclude Include="progressBar.h" />
@@ -195,6 +196,7 @@
     <ClCompile Include="loading.cpp" />
     <ClCompile Include="loadingScene.cpp" />
     <ClCompile Include="mainGame.cpp" />
+    <ClCompile Include="monstro.cpp" />
     <ClCompile Include="pixelCollision.cpp" />
     <ClCompile Include="playerData.cpp" />
     <ClCompile Include="progressBar.cpp" />

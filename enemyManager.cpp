@@ -7,10 +7,15 @@ HRESULT enemyManager::init(void)
 	//미니언 생성
 	
 	_count = 0;
-	setMinion();
+	
 	//총알클래스 생성 및 초기화
-	_bullet = new bullet;
-	//_bullet->init("bullet", 15);
+	_bullet = new frameBullet;
+	_bullet->init("enemyBullet", 15);
+
+	_hBullet = new hoppingBullet;
+	_hBullet->init("enemyBullet", 50);
+
+	setMinion();
 
 	return S_OK;
 }
@@ -20,6 +25,8 @@ void enemyManager::release(void)
 	//총알클래스 해제
 	_bullet->release();
 	SAFE_DELETE(_bullet);
+	_hBullet->release();
+	SAFE_DELETE(_hBullet);
 }
 
 void enemyManager::update(void)
@@ -45,7 +52,7 @@ void enemyManager::update(void)
 
 	//총알클래스 업데이트
 	_bullet->update();
-
+	_hBullet->update();
 	//미니언 총알발사
 	this->minionBulletFire();
 
@@ -64,13 +71,25 @@ void enemyManager::render(void)
 	}
 
 	_bullet->render();
+	_hBullet->render();
 }
 
 void enemyManager::setMinion(void)
 {
-	groundEnemy* temp = new groundEnemy;
+	/*groundEnemy* temp = new groundEnemy;
 	temp->init("worm_V","worm_H",100,100,3.0f,_player);
-	_vMinion.push_back(temp);
+	_vMinion.push_back(temp);*/
+
+	
+	addEnemy("파리", 600, 300);
+
+	addEnemy("보스", 100, 400);
+
+	addEnemy("벌레", 100, 400);
+
+
+	addEnemy("슈팅", 100, 400);
+
 }
 
 void enemyManager::minionBulletFire(void)
@@ -80,8 +99,8 @@ void enemyManager::minionBulletFire(void)
 	{
 		if ((*_viMinion)->bulletCountFire())
 		{
-			RECT rc = (*_viMinion)->getRect();
-			//_bullet->fire(rc.left + (rc.right - rc.left) / 2, rc.bottom + 30, -PI / 2, 3.0f);
+			float angle = getAngle((*_viMinion)->getX(), (*_viMinion)->getY(), _player->GetX(), _player->GetY());
+			_bullet->fire((*_viMinion)->getX()+25, (*_viMinion)->getY(),angle,300,1,1);
 		}
 	}
 }
@@ -112,8 +131,39 @@ void enemyManager::collision()
 				(*_viMinion)->setknockBackAngle(getAngle(_player->getBullet()->getVBulletPt()->at(i).x, _player->getBullet()->getVBulletPt()->at(i).y, (*_viMinion)->getX(), (*_viMinion)->getY()));
 				_player->getBullet()->getVBulletPt()->erase(_player->getBullet()->getVBulletPt()->begin() + i);
 				(*_viMinion)->setHP(((*_viMinion)->getHP())-1);
+				(*_viMinion)->setHitTime(2);
 				break;
 			}
 		}
+	}
+}
+
+void enemyManager::addEnemy(string KEY, float centerX, float centerY)
+{
+	if (KEY == "벌레")
+	{
+		groundEnemy* temp = new groundEnemy;
+		temp->init(centerX, centerY, _player);
+		_vMinion.push_back(temp);
+	}
+	
+	else if (KEY == "파리")
+	{
+		fly* temp = new fly;
+		temp->init("fly", centerX, centerY, _player);
+		_vMinion.push_back(temp);
+	}
+
+	else if (KEY == "슈팅")
+	{
+		shootEnemy* temp = new shootEnemy;
+		temp->init(centerX, centerY, _player);
+		_vMinion.push_back(temp);
+	}
+	else if (KEY == "보스")
+	{
+		monstro* temp = new monstro;
+		temp->init(centerX, centerY, _player,_hBullet);
+		_vMinion.push_back(temp);
 	}
 }
